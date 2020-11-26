@@ -15,6 +15,8 @@ object Form2: TForm2
   ShowHint = True
   Visible = True
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
   object main_image: TImage
@@ -50663,9 +50665,14 @@ object Form2: TForm2
     end
   end
   object Timer1: TTimer
-    Interval = 10
+    Interval = 1
     OnTimer = Timer1Timer
     Left = 288
+    Top = 232
+  end
+  object Timer2: TTimer
+    OnTimer = Timer2Timer
+    Left = 328
     Top = 232
   end
 end

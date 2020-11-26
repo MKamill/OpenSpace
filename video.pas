@@ -369,7 +369,7 @@ begin
       pMediaPosition.put_CurrentPosition(0);
       form2.MediaPlayer1.Play;
     end;
-  form2.MediaPlayer1.Play;
+  //form2.MediaPlayer1.Play;
 end;
 
 procedure Tvideo_form.FormCreate(Sender: TObject);

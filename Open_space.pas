@@ -33,6 +33,7 @@ type
     Timer1: TTimer;
     MediaPlayer1: TMediaPlayer;
     MediaPlayer2: TMediaPlayer;
+    Timer2: TTimer;
     procedure Image1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure main_imageMouseDown(Sender: TObject; Button: TMouseButton;
@@ -50,6 +51,9 @@ type
     procedure N7Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure Image6Click(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure Timer2Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -80,6 +84,7 @@ procedure TForm2.FormCreate(Sender: TObject);
 var
   Comp : TComponent;
 begin
+  n6.Checked:=true;
   MediaPlayer1.FileName:='C:\Users\79876\Desktop\OpenSpace\Sounds\ss.wav';
   MediaPlayer1.Open;
   MediaPlayer1.Play;
@@ -88,6 +93,39 @@ begin
   Form2.TransparentColorValue := clcream;
   Form2.transparentcolor := true;
   Form2.Color := clcream;
+end;
+
+procedure TForm2.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var lowerLeft: TPoint;
+begin
+  if key=83 then
+  begin
+    mediaplayer1.Stop;
+    n7.Checked:=true;
+    n6.Checked:=false;
+  end;
+  if key=80 then
+  begin
+    mediaplayer1.play;
+    n6.Checked:=true;
+    n7.Checked:=false;
+  end;
+  if key=77 then
+  begin
+    lowerLeft := Point(Image7.Left+Image7.Width+20,Image7.Top);
+    lowerLeft := ClientToScreen(lowerLeft);
+    PopupMenu1.Popup(lowerLeft.X, lowerLeft.Y);
+  end;
+  if key=69 then
+  begin
+    application.Terminate;
+  end;
+end;
+
+procedure TForm2.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #77 then Key := #0;
 end;
 
 procedure TForm2.Image14Click(Sender: TObject);
@@ -156,37 +194,46 @@ end;
 procedure TForm2.N6Click(Sender: TObject);
 begin
   MediaPlayer1.Play;
+  n6.Checked:=true;
+  n7.Checked:=false;
 end;
 
 procedure TForm2.N7Click(Sender: TObject);
 begin
   MediaPlayer1.stop;
+  n7.Checked:=true;
+  n6.Checked:=false;
 end;
 
 procedure TForm2.Timer1Timer(Sender: TObject);
 begin
-  with video_form do
-      begin
-        if video_form.active then
-        begin
-          if mode=play then
-           begin
-             MediaPlayer1.stop;
-           end
-           else
-           begin
-             if (mode=stop) or (mode=paused) then MediaPlayer1.play;
-           end;
-        end;
-      end;
+//  with video_form do
+//      begin
+//        if video_form.active then
+//        begin
+//          MediaPlayer1.Stop;
+//        end
+//        else
+//        begin
+//          if form2.N6.Checked then MediaPlayer1.play;
+//        end;
+//      end;
   with Photo_view do
       begin
-        if photo_view.active then
+        if photo_view.active or video_form.Active then
         begin
-          if play.Caption='Ñëàéäøîó ||' then MediaPlayer1.stop
-          else if play.Caption='Ñëàéäøîó >' then MediaPlayer1.play;
+          MediaPlayer1.stop;
+        end
+        else
+        begin
+          if form2.N6.Checked then MediaPlayer1.play;
         end;
       end;
+end;
+
+procedure TForm2.Timer2Timer(Sender: TObject);
+begin
+  //if n7.Checked then mediaplayer1.Stop;
 end;
 
 end.

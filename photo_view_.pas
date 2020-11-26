@@ -62,6 +62,8 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button5Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -207,12 +209,20 @@ begin
     end;
 end;
 
+procedure TPhoto_view.FormActivate(Sender: TObject);
+begin
+  if form2.N7.Checked then form2.MediaPlayer1.Stop;
+end;
+
 procedure TPhoto_view.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   timer.Enabled:=false;
   play.Caption:='Ñëàéäøîó >';
   mp1.Stop;
-  Form2.MediaPlayer1.Play;
+  if form2.n7.Checked=true then
+  begin
+    //to do
+  end;
 end;
 
 procedure TPhoto_view.FormCreate(Sender: TObject);
@@ -250,6 +260,11 @@ begin
   photo_view.Height:=ceil(photo_view.width*0.6875);
   main_ph_panel.width:=main_ph_panel.width+10;
   main_ph_panel.Height:=ceil(main_ph_panel.width*0.5875);
+end;
+
+procedure TPhoto_view.FormShow(Sender: TObject);
+begin
+  if form2.N7.Checked=true then form2.MediaPlayer1.Stop;
 end;
 
 procedure TPhoto_view.Image10Click(Sender: TObject);

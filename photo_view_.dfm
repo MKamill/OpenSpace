@@ -17,10 +17,12 @@ object Photo_view: TPhoto_view
   OldCreateOrder = False
   Position = poDesigned
   ShowHint = True
+  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnMouseWheelDown = FormMouseWheelDown
   OnMouseWheelUp = FormMouseWheelUp
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object main_ph_image: TImage
@@ -5381,8 +5383,8 @@ object Photo_view: TPhoto_view
     Enabled = False
     Interval = 3500
     OnTimer = timerTimer
-    Left = 584
-    Top = 64
+    Left = 480
+    Top = 152
   end
   object OpenPictureDialog1: TOpenPictureDialog
     Left = 584
@@ -5391,7 +5393,7 @@ object Photo_view: TPhoto_view
   object Timer1: TTimer
     Interval = 10
     OnTimer = Timer1Timer
-    Left = 384
-    Top = 264
+    Left = 392
+    Top = 152
   end
 end
