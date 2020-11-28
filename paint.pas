@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ColorGrd,math, ComCtrls,PNGImage, Jpeg, ClipBrd, StdCtrls, Buttons, ExtCtrls, Menus, ExtDlgs,
-  System.ImageList, Vcl.ImgList;
+  System.ImageList, Vcl.ImgList, System.Actions, Vcl.ActnList, Vcl.StdActns;
 
 type
   TPaintForm = class(TForm)
@@ -80,6 +80,9 @@ type
     SpeedButton3: TSpeedButton;
     SpeedButton4: TSpeedButton;
     ImageList12: TImageList;
+    ActionList1: TActionList;
+    EditUndo1: TEditUndo;
+    UpDown1: TUpDown;
     procedure FormCreate(Sender: TObject);
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
@@ -163,6 +166,7 @@ type
     procedure FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
       MousePos: TPoint; var Handled: Boolean);
     procedure Timer1Timer(Sender: TObject);
+    procedure UpDown1Click(Sender: TObject; Button: TUDBtnType);
   private
     { Private declarations }
   public
@@ -718,14 +722,14 @@ begin
           else
             img1.Canvas.Brush.Style := bsSolid;
             Img1.Canvas.ellipse(x,y,x1,y1);
-            for l := 1 to 300 do
+            for l := 1 to 200 do
               begin
-                if (l mod 300=0) then Img1.Canvas.ellipse(x+l,y,x1+l,y1)
+                if (l mod 200=0) then Img1.Canvas.ellipse(x+l,y,x1+l,y1)
               end;;
             Img1.Canvas.MoveTo(x1-round((x1-x)/2),y);
-            Img1.Canvas.LineTo(x1+300-round((x1-x)/2),y);
+            Img1.Canvas.LineTo(x1+200-round((x1-x)/2),y);
             Img1.Canvas.MoveTo(x1-round((x1-x)/2),y1);
-            Img1.Canvas.LineTo(x1+300-round((x1-x)/2),y1);
+            Img1.Canvas.LineTo(x1+200-round((x1-x)/2),y1);
         end;
       if speedbutton2.down then
       begin
@@ -923,8 +927,11 @@ end;
 procedure TPaintForm.edt1Change(Sender: TObject);
 begin
   fat := strtoint(edt1.text);
-  if not btn5.Down then
-   img1.Canvas.Pen.Width := fat;
+  if edt1.text<>'' then
+  begin
+    if not btn5.Down then
+      img1.Canvas.Pen.Width := fat;
+  end;
 end;
 
 procedure TPaintForm.ud1Click(Sender: TObject; Button: TUDBtnType);
@@ -944,6 +951,29 @@ begin
      if Button = btnext then
        begin
          Inc(front);
+         edt1.Text := IntToStr(front);
+       end;
+    end;
+  end;
+end;
+
+procedure TPaintForm.UpDown1Click(Sender: TObject; Button: TUDBtnType);
+begin
+  if not btn5.Down then
+  begin
+    front := StrToInt(edt1.Text);
+    if front <> 0 then
+    begin
+    if Button = btprev then
+      begin
+        front:=front-10;
+        if front = 0 then
+          front := 1;
+        edt1.Text := IntToStr(front);
+      end;
+     if Button = btnext then
+       begin
+         front:=front+10;
          edt1.Text := IntToStr(front);
        end;
     end;

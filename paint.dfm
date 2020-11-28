@@ -4235,7 +4235,6 @@ object PaintForm: TPaintForm
       Align = alTop
       ParentBackground = False
       TabOrder = 0
-      ExplicitTop = 30
       object btn1: TSpeedButton
         Left = 8
         Top = 6
@@ -4592,7 +4591,7 @@ object PaintForm: TPaintForm
         OnMouseMove = btn8MouseMove
       end
       object lbl1: TLabel
-        Left = 356
+        Left = 326
         Top = 10
         Width = 46
         Height = 13
@@ -4664,8 +4663,8 @@ object PaintForm: TPaintForm
         OnMouseMove = btn6MouseMove
       end
       object SpeedButton1: TSpeedButton
-        Left = 8
-        Top = 47
+        Left = 10
+        Top = 48
         Width = 55
         Height = 35
         GroupIndex = 1
@@ -5148,18 +5147,20 @@ object PaintForm: TPaintForm
         OnMouseMove = btn4MouseMove
       end
       object edt1: TEdit
-        Left = 361
+        Left = 326
         Top = 29
         Width = 41
         Height = 21
         TabStop = False
+        Enabled = False
+        NumbersOnly = True
         TabOrder = 0
         Text = '1'
         OnChange = edt1Change
         OnMouseMove = edt1MouseMove
       end
       object ud1: TUpDown
-        Left = 400
+        Left = 369
         Top = 29
         Width = 33
         Height = 21
@@ -5228,6 +5229,14 @@ object PaintForm: TPaintForm
           OnClick = clrgrd1Click
           OnMouseMove = clrgrd1MouseMove
         end
+      end
+      object UpDown1: TUpDown
+        Left = 402
+        Top = 29
+        Width = 33
+        Height = 21
+        TabOrder = 5
+        OnClick = UpDown1Click
       end
     end
     object stat1: TStatusBar
@@ -5401,7 +5410,10 @@ object PaintForm: TPaintForm
       OnClick = L2Click
     end
     object N21: TMenuItem
-      Caption = #1054#1090#1084#1077#1085#1080#1090#1100
+      Caption = #1053#1072#1079#1072#1076
+      Hint = 'Undo|Reverts the last action'
+      ImageIndex = 3
+      ShortCut = 16474
       OnClick = N10Click
     end
   end
@@ -6245,5 +6257,16 @@ object PaintForm: TPaintForm
       FEBF80030003DCF7FC9F80070003FF0FFDDF807F0003FFFFFDDF80FF8007FFFF
       FDDF81FFF87FFFFFFFFFFFFFFFFFFFFF00000000000000000000000000000000
       000000000000}
+  end
+  object ActionList1: TActionList
+    Left = 464
+    Top = 336
+    object EditUndo1: TEditUndo
+      Category = 'Edit'
+      Caption = '&Undo'
+      Hint = 'Undo|Reverts the last action'
+      ImageIndex = 3
+      ShortCut = 16474
+    end
   end
 end

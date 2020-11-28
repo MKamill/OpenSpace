@@ -6077,9 +6077,21 @@ object video_form: Tvideo_form
       Color = clCream
       ParentBackground = False
       TabOrder = 0
-      OnDblClick = Panel1DblClick
       OnMouseMove = Panel1MouseMove
       OnResize = Panel1Resize
+      ExplicitLeft = -5
+      object Panel5: TPanel
+        Left = 0
+        Top = 0
+        Width = 720
+        Height = 326
+        Align = alClient
+        TabOrder = 0
+        ExplicitLeft = 272
+        ExplicitTop = 144
+        ExplicitWidth = 185
+        ExplicitHeight = 41
+      end
     end
     object ListBox1: TListBox
       Left = 222
@@ -6208,7 +6220,6 @@ object video_form: Tvideo_form
             5E674BA002CF3E189A08921713A541DAC51C2085C725B43D8176C70890E37857
             7E5069CF1E9ED85A803B014700CE380270C61180338E009C7104E08C2300671C
             0138F32F7A84C88EA7C373F90000000049454E44AE426082}
-          Proportional = True
           Stretch = True
           OnClick = SpeedButton1Click
           ExplicitLeft = 1
@@ -6298,7 +6309,7 @@ object video_form: Tvideo_form
         object Image3: TImage
           Left = 65
           Top = 0
-          Width = 33
+          Width = 27
           Height = 35
           Cursor = crHandPoint
           Hint = #1054#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1080' '#1089#1073#1088#1086#1089#1080#1090#1100' '#1074#1085#1072#1095#1072#1083#1086
@@ -6318,11 +6329,9 @@ object video_form: Tvideo_form
           Proportional = True
           Stretch = True
           OnClick = SpeedButton3Click
-          ExplicitLeft = 71
-          ExplicitTop = 1
         end
         object Image4: TImage
-          Left = 98
+          Left = 92
           Top = 0
           Width = 33
           Height = 35
@@ -6454,12 +6463,11 @@ object video_form: Tvideo_form
           Proportional = True
           Stretch = True
           OnClick = SpeedButton4Click
-          ExplicitLeft = 119
-          ExplicitTop = 9
-          ExplicitHeight = 33
+          ExplicitLeft = 86
+          ExplicitTop = 1
         end
         object Image5: TImage
-          Left = 131
+          Left = 125
           Top = 0
           Width = 33
           Height = 35
@@ -6575,11 +6583,11 @@ object video_form: Tvideo_form
           Proportional = True
           Stretch = True
           OnClick = SpeedButton5Click
-          ExplicitLeft = 125
+          ExplicitLeft = 119
           ExplicitTop = 1
         end
         object Image6: TImage
-          Left = 164
+          Left = 158
           Top = 0
           Width = 33
           Height = 35
@@ -6655,6 +6663,8 @@ object video_form: Tvideo_form
           BackgroundColor = clMedGray
           TabOrder = 0
           OnMouseMove = ProgressBar1MouseMove
+          ExplicitLeft = 0
+          ExplicitTop = 3
         end
         object Panel3: TPanel
           Left = 603
@@ -6743,6 +6753,7 @@ object video_form: Tvideo_form
       OnClick = ListBox2Click
       OnDblClick = ListBox2DblClick
       OnMouseActivate = ListBox2MouseActivate
+      ExplicitTop = 326
     end
   end
   object OpenDialog1: TOpenDialog
@@ -6784,5 +6795,10 @@ object video_form: Tvideo_form
     OnTimer = Timer_formTimer
     Left = 128
     Top = 120
+  end
+  object Timer1: TTimer
+    Interval = 1
+    Left = 152
+    Top = 304
   end
 end

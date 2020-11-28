@@ -50644,6 +50644,7 @@ object Form2: TForm2
     end
     object N4: TMenuItem
       Caption = #1054' '#1087#1088#1086#1077#1082#1090#1077
+      OnClick = N4Click
     end
     object N5: TMenuItem
       Caption = #1052#1091#1079#1099#1082#1072

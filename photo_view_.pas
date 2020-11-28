@@ -237,7 +237,7 @@ begin
   Photo_view.transparentcolor := true;
   Photo_view.Color := clblue;
   indexImage:=0;
-  ListFileDir('C:\Users\79876\Desktop\OpenOfficeProgram\Gallery',history)
+  ListFileDir('C:\Users\79876\Desktop\os3\Gallery',history)
 end;
 
 procedure TPhoto_view.FormMouseWheelDown(Sender: TObject; Shift: TShiftState;

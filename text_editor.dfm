@@ -2132,7 +2132,6 @@ object Form1: TForm1
   OldCreateOrder = False
   Position = poDesigned
   ShowHint = True
-  OnClose = FormClose
   OnCreate = FormCreate
   OnMouseDown = FormMouseDown
   OnMouseWheelDown = FormMouseWheelDown

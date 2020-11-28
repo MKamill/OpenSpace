@@ -1,4 +1,4 @@
-unit video;
+п»їunit video;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   DirectShow9, math, ActiveX, Vcl.Imaging.pngimage;
 
 type
-  TPlayerMode = (Stop, Play, Paused); // режим воспроизведения
+  TPlayerMode = (Stop, Play, Paused); // СЂРµР¶РёРј РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ
   Tvideo_form = class(TForm)
     main_panel: TPanel;
     Splitter1: TSplitter;
@@ -50,6 +50,7 @@ type
     Image13: TImage;
     Image14: TImage;
     Image15: TImage;
+    Panel5: TPanel;
     procedure Initializ;
     procedure Player;
     procedure AddPlayList;
@@ -100,7 +101,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
   { Private declarations }
-  //процедура обработки сообщений от клавиатуры
+  //РїСЂРѕС†РµРґСѓСЂР° РѕР±СЂР°Р±РѕС‚РєРё СЃРѕРѕР±С‰РµРЅРёР№ РѕС‚ РєР»Р°РІРёР°С‚СѓСЂС‹
   Procedure WMKeyDown(Var Msg:TWMKeyDown); Message WM_KeyDown;
   public
     { Public declarations }
@@ -109,23 +110,23 @@ type
 
 var
   video_form: Tvideo_form;
-  hr: HRESULT = 1; //задаем начальное значение ложь
-  pCurrent, pDuration: Double;// Текужее положение и длительность фильма
-  Mode: TPlayerMode; // режим воспроизведения
-  Rate: Double;// нормальная скорость воспроизведения
-  FullScreen: boolean = false; //индикатор перехода в полноэкранный режим
-  i: integer = 0;// счетчик загруженных файлов
-  FileName: string;//имя файла
-  xn, yn : integer; //для хранения координат мыши
-  mouse: tmouse; //координаты мыши
+  hr: HRESULT = 1; //Р·Р°РґР°РµРј РЅР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ Р»РѕР¶СЊ
+  pCurrent, pDuration: Double;// РўРµРєСѓР¶РµРµ РїРѕР»РѕР¶РµРЅРёРµ Рё РґР»РёС‚РµР»СЊРЅРѕСЃС‚СЊ С„РёР»СЊРјР°
+  Mode: TPlayerMode; // СЂРµР¶РёРј РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ
+  Rate: Double;// РЅРѕСЂРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ
+  FullScreen: boolean = false; //РёРЅРґРёРєР°С‚РѕСЂ РїРµСЂРµС…РѕРґР° РІ РїРѕР»РЅРѕСЌРєСЂР°РЅРЅС‹Р№ СЂРµР¶РёРј
+  i: integer = 0;// СЃС‡РµС‚С‡РёРє Р·Р°РіСЂСѓР¶РµРЅРЅС‹С… С„Р°Р№Р»РѕРІ
+  FileName: string;//РёРјСЏ С„Р°Р№Р»Р°
+  xn, yn : integer; //РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РєРѕРѕСЂРґРёРЅР°С‚ РјС‹С€Рё
+  mouse: tmouse; //РєРѕРѕСЂРґРёРЅР°С‚С‹ РјС‹С€Рё
 
-  //интерфейсы для построения и управления графом
-  pGraphBuilder        : IGraphBuilder         = nil; //сам граф
-  pMediaControl        : IMediaControl         = nil; //управление графом
-  pMediaEvent          : IMediaEvent           = nil; //обработчик событий
-  pVideoWindow         : IVideoWindow          = nil; //задает окно для вывода
-  pMediaPosition       : IMediaPosition        = nil; //позиция проигрывания
-  pBasicAudio          : IBasicAudio           = nil; //управление звуком
+  //РёРЅС‚РµСЂС„РµР№СЃС‹ РґР»СЏ РїРѕСЃС‚СЂРѕРµРЅРёСЏ Рё СѓРїСЂР°РІР»РµРЅРёСЏ РіСЂР°С„РѕРј
+  pGraphBuilder        : IGraphBuilder         = nil; //СЃР°Рј РіСЂР°С„
+  pMediaControl        : IMediaControl         = nil; //СѓРїСЂР°РІР»РµРЅРёРµ РіСЂР°С„РѕРј
+  pMediaEvent          : IMediaEvent           = nil; //РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёР№
+  pVideoWindow         : IVideoWindow          = nil; //Р·Р°РґР°РµС‚ РѕРєРЅРѕ РґР»СЏ РІС‹РІРѕРґР°
+  pMediaPosition       : IMediaPosition        = nil; //РїРѕР·РёС†РёСЏ РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ
+  pBasicAudio          : IBasicAudio           = nil; //СѓРїСЂР°РІР»РµРЅРёРµ Р·РІСѓРєРѕРј
 
 implementation
 uses text_editor, Open_space, photo_view_, LW9, paint;
@@ -134,9 +135,9 @@ uses text_editor, Open_space, photo_view_, LW9, paint;
 
 procedure Tvideo_form.Image10Click(Sender: TObject);
 begin
-   if (not Assigned(Form1)) then   // проверка существования Формы (если нет, то
-       Form1:=TForm1.Create(Self);    // создание Формы)
-   Form1.Show; // (или Form2.ShowModal) показ Формы
+   if (not Assigned(Form1)) then   // РїСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ Р¤РѕСЂРјС‹ (РµСЃР»Рё РЅРµС‚, С‚Рѕ
+       Form1:=TForm1.Create(Self);    // СЃРѕР·РґР°РЅРёРµ Р¤РѕСЂРјС‹)
+   Form1.Show; // (РёР»Рё Form2.ShowModal) РїРѕРєР°Р· Р¤РѕСЂРјС‹
 end;
 
 procedure Tvideo_form.Image11Click(Sender: TObject);
@@ -146,16 +147,16 @@ end;
 
 procedure Tvideo_form.Image12Click(Sender: TObject);
 begin
-  if (not Assigned(photo_view)) then   // проверка существования Формы (если нет, то
-       photo_view:=Tphoto_view.Create(Self);    // создание Формы)
-   photo_view.Show; // (или Form2.ShowModal) показ Формы
+  if (not Assigned(photo_view)) then   // РїСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ Р¤РѕСЂРјС‹ (РµСЃР»Рё РЅРµС‚, С‚Рѕ
+       photo_view:=Tphoto_view.Create(Self);    // СЃРѕР·РґР°РЅРёРµ Р¤РѕСЂРјС‹)
+   photo_view.Show; // (РёР»Рё Form2.ShowModal) РїРѕРєР°Р· Р¤РѕСЂРјС‹
 end;
 
 procedure Tvideo_form.Image13Click(Sender: TObject);
 begin
-  if (not Assigned(dbform)) then   // проверка существования Формы (если нет, то
-       dbform:=Tdbform.Create(self); //self   // создание Формы)
-   dbform.Show; // (или Form2.ShowModal) показ Формы
+  if (not Assigned(dbform)) then   // РїСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ Р¤РѕСЂРјС‹ (РµСЃР»Рё РЅРµС‚, С‚Рѕ
+       dbform:=Tdbform.Create(self); //self   // СЃРѕР·РґР°РЅРёРµ Р¤РѕСЂРјС‹)
+   dbform.Show; // (РёР»Рё Form2.ShowModal) РїРѕРєР°Р· Р¤РѕСЂРјС‹
 end;
 
 procedure Tvideo_form.Image14Click(Sender: TObject);
@@ -165,15 +166,15 @@ end;
 
 procedure Tvideo_form.Image15Click(Sender: TObject);
 begin
-  if (not Assigned(paintform)) then   // проверка существования Формы (если нет, то
-       paintform:=Tpaintform.Create(Self);    // создание Формы)
-   paintform.Show; // (или Form2.ShowModal) показ Формы
+  if (not Assigned(paintform)) then   // РїСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ Р¤РѕСЂРјС‹ (РµСЃР»Рё РЅРµС‚, С‚Рѕ
+       paintform:=Tpaintform.Create(Self);    // СЃРѕР·РґР°РЅРёРµ Р¤РѕСЂРјС‹)
+   paintform.Show; // (РёР»Рё Form2.ShowModal) РїРѕРєР°Р· Р¤РѕСЂРјС‹
 end;
 
 procedure Tvideo_form.CreateParams(var Params: TCreateParams);
 begin
   inherited CreateParams(Params);
-  Params.WndParent:= GetDesktopWindow; // дочерняя форма рабочего стола
+  Params.WndParent:= GetDesktopWindow; // РґРѕС‡РµСЂРЅСЏСЏ С„РѕСЂРјР° СЂР°Р±РѕС‡РµРіРѕ СЃС‚РѕР»Р°
 end;
 
 procedure Tvideo_form.Image7MouseDown(Sender: TObject; Button: TMouseButton;
@@ -196,8 +197,8 @@ begin
   if mode=play then
   begin
    pMediaControl.Stop;
-   mode:=Stop;//устанавливаем playmode -> стоп
-   //задаем начальное положение проигравания
+   mode:=Stop;//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј playmode -> СЃС‚РѕРї
+   //Р·Р°РґР°РµРј РЅР°С‡Р°Р»СЊРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ РїСЂРѕРёРіСЂР°РІР°РЅРёСЏ
    pMediaPosition.put_CurrentPosition(0);
   end;
   video_form.Close;
@@ -209,122 +210,122 @@ begin
 end;
 
 procedure Tvideo_form.Initializ;
-//процедура построения графа
+//РїСЂРѕС†РµРґСѓСЂР° РїРѕСЃС‚СЂРѕРµРЅРёСЏ РіСЂР°С„Р°
 begin
-//освобождаем подключенные интерфейсы
+//РѕСЃРІРѕР±РѕР¶РґР°РµРј РїРѕРґРєР»СЋС‡РµРЅРЅС‹Рµ РёРЅС‚РµСЂС„РµР№СЃС‹
   if Assigned(pMediaPosition) then pMediaPosition := nil;
   if Assigned(pBasicAudio) then pBasicAudio  := nil;
   if Assigned(pVideoWindow) then pVideoWindow := nil;
   if Assigned(pMediaEvent) then pMediaEvent := nil;
   if Assigned(pMediaControl) then pMediaControl := nil;
   if Assigned(pGraphBuilder) then pGraphBuilder := nil;
-//получаем интерфейс построения графа
+//РїРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ РїРѕСЃС‚СЂРѕРµРЅРёСЏ РіСЂР°С„Р°
   hr := CoCreateInstance(CLSID_FilterGraph, nil, CLSCTX_INPROC_SERVER, IID_IGraphBuilder, pGraphBuilder);
   if hr<>0 then begin
-    ShowMessage('Не удается создать граф');
+    ShowMessage('РќРµ СѓРґР°РµС‚СЃСЏ СЃРѕР·РґР°С‚СЊ РіСЂР°С„');
     exit;
   end;
-//получаем интерфейс управления
+//РїРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ СѓРїСЂР°РІР»РµРЅРёСЏ
   hr := pGraphBuilder.QueryInterface(IID_IMediaControl, pMediaControl);
   if hr<>0 then begin
-    ShowMessage('Не удается получить интерфейс IMediaControl');
+    ShowMessage('РќРµ СѓРґР°РµС‚СЃСЏ РїРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ IMediaControl');
     exit;
   end;
-//получаем интерфейс событий
+//РїРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ СЃРѕР±С‹С‚РёР№
    hr := pGraphBuilder.QueryInterface(IID_IMediaEvent, pMediaEvent);
    if hr<>0 then begin
-    ShowMessage('Не удается получить интерфейс событий');
+    ShowMessage('РќРµ СѓРґР°РµС‚СЃСЏ РїРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ СЃРѕР±С‹С‚РёР№');
     exit;
   end;
-//получаем интерфейс управления окном вывода видео
+//РїРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ СѓРїСЂР°РІР»РµРЅРёСЏ РѕРєРЅРѕРј РІС‹РІРѕРґР° РІРёРґРµРѕ
   hr := pGraphBuilder.QueryInterface(IID_IVideoWindow, pVideoWindow);
   if hr<>0 then begin
-    ShowMessage('Не удается получить IVideoWindow');
+    ShowMessage('РќРµ СѓРґР°РµС‚СЃСЏ РїРѕР»СѓС‡РёС‚СЊ IVideoWindow');
     exit;
   end;
-//получаем интерфейс управления звуком
+//РїРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ СѓРїСЂР°РІР»РµРЅРёСЏ Р·РІСѓРєРѕРј
    hr := pGraphBuilder.QueryInterface(IBasicAudio, pBasicAudio);
   if hr<>0 then begin
-    ShowMessage('Не удается получить аудио интерфейс');
+    ShowMessage('РќРµ СѓРґР°РµС‚СЃСЏ РїРѕР»СѓС‡РёС‚СЊ Р°СѓРґРёРѕ РёРЅС‚РµСЂС„РµР№СЃ');
     exit;
   end;
-//получаем интерфейс  управления позицией проигрывания
+//РїРѕР»СѓС‡Р°РµРј РёРЅС‚РµСЂС„РµР№СЃ  СѓРїСЂР°РІР»РµРЅРёСЏ РїРѕР·РёС†РёРµР№ РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ
   hr := pGraphBuilder.QueryInterface(IID_IMediaPosition, pMediaPosition);
    if hr<>0 then begin
-    ShowMessage('Не удается получить интерфейс управления позицией');
+    ShowMessage('РќРµ СѓРґР°РµС‚СЃСЏ РїРѕР»СѓС‡РёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ СѓРїСЂР°РІР»РµРЅРёСЏ РїРѕР·РёС†РёРµР№');
     exit;
   end;
-//загружаем файл для проигрывания
+//Р·Р°РіСЂСѓР¶Р°РµРј С„Р°Р№Р» РґР»СЏ РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ
   hr := pGraphBuilder.RenderFile(StringToOleStr(PChar(filename)), '');
   if hr<>0 then begin
-    ShowMessage('Не удается прорендерить файл');
+    ShowMessage('РќРµ СѓРґР°РµС‚СЃСЏ РїСЂРѕСЂРµРЅРґРµСЂРёС‚СЊ С„Р°Р№Р»');
     exit;
   end;
 
-//располагаем окошко с видео на панель
-   pVideoWindow.Put_Owner(Panel1.Handle);//Устанавливаем "владельца" окна, в нашем случае Panel1
-   pVideoWindow.Put_WindowStyle(WS_CHILD OR WS_CLIPSIBLINGS);//Стиль окна
-   pVideoWindow.put_MessageDrain(Panel1.Handle);//указываем что Panel1 будет получать сообщения видео окна
-   pVideoWindow.SetWindowPosition(0,0,Panel1.ClientRect.Right,Panel1.ClientRect.Bottom); //размеры
+//СЂР°СЃРїРѕР»Р°РіР°РµРј РѕРєРѕС€РєРѕ СЃ РІРёРґРµРѕ РЅР° РїР°РЅРµР»СЊ
+   pVideoWindow.Put_Owner(Panel1.Handle);//РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј "РІР»Р°РґРµР»СЊС†Р°" РѕРєРЅР°, РІ РЅР°С€РµРј СЃР»СѓС‡Р°Рµ Panel1
+   pVideoWindow.Put_WindowStyle(WS_CHILD OR WS_CLIPSIBLINGS);//РЎС‚РёР»СЊ РѕРєРЅР°
+   pVideoWindow.put_MessageDrain(Panel1.Handle);//СѓРєР°Р·С‹РІР°РµРј С‡С‚Рѕ Panel1 Р±СѓРґРµС‚ РїРѕР»СѓС‡Р°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ РІРёРґРµРѕ РѕРєРЅР°
+   pVideoWindow.SetWindowPosition(0,0,Panel1.ClientRect.Right,Panel1.ClientRect.Bottom); //СЂР°Р·РјРµСЂС‹
 end;
 
 
 procedure Tvideo_form.Player;
-//процедура проигрывания файла
+//РїСЂРѕС†РµРґСѓСЂР° РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ С„Р°Р№Р»Р°
 begin
 if mode<>paused then begin
-//проверяем существует ли файл загружаемый из PlayList
-//если файл не существует, то выходим
-if not FileExists(FileName) then begin ShowMessage('Файл не существует');exit;end;
-//освобождаем канал воспроизведения
+//РїСЂРѕРІРµСЂСЏРµРј СЃСѓС‰РµСЃС‚РІСѓРµС‚ Р»Рё С„Р°Р№Р» Р·Р°РіСЂСѓР¶Р°РµРјС‹Р№ РёР· PlayList
+//РµСЃР»Рё С„Р°Р№Р» РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, С‚Рѕ РІС‹С…РѕРґРёРј
+if not FileExists(FileName) then begin ShowMessage('Р¤Р°Р№Р» РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚');exit;end;
+//РѕСЃРІРѕР±РѕР¶РґР°РµРј РєР°РЅР°Р» РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ
 Initializ;
 end;
-//Запускаем процедуру проигрывания
+//Р—Р°РїСѓСЃРєР°РµРј РїСЂРѕС†РµРґСѓСЂСѓ РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ
 pMediaControl.Run;
-//получаем скорость врспроизведения
+//РїРѕР»СѓС‡Р°РµРј СЃРєРѕСЂРѕСЃС‚СЊ РІСЂСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ
 pMediaPosition.get_Rate(Rate);
-//присваеваем заголовку формы имя проигрываемого файла
+//РїСЂРёСЃРІР°РµРІР°РµРј Р·Р°РіРѕР»РѕРІРєСѓ С„РѕСЂРјС‹ РёРјСЏ РїСЂРѕРёРіСЂС‹РІР°РµРјРѕРіРѕ С„Р°Р№Р»Р°
 video_form.Caption:=ExtractFileName(FileName);
-//Устанавливаем режим воспроизведения PlayMode - play
+//РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЂРµР¶РёРј РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ PlayMode - play
 mode:=play;
 end;
 
 
 Procedure  Tvideo_form.WMKeyDown(Var Msg:TWMKeyDown);
-//выход из полноэкранного режима по кнопке ESC
+//РІС‹С…РѕРґ РёР· РїРѕР»РЅРѕСЌРєСЂР°РЅРЅРѕРіРѕ СЂРµР¶РёРјР° РїРѕ РєРЅРѕРїРєРµ ESC
 begin
   if Msg.CharCode=VK_ESCAPE then
   begin
-      pVideoWindow.HideCursor(False); //показываем курсор
-      //показываем плейлист, сплиттер, панель управления GroupBox
+      pVideoWindow.HideCursor(False); //РїРѕРєР°Р·С‹РІР°РµРј РєСѓСЂСЃРѕСЂ
+      //РїРѕРєР°Р·С‹РІР°РµРј РїР»РµР№Р»РёСЃС‚, СЃРїР»РёС‚С‚РµСЂ, РїР°РЅРµР»СЊ СѓРїСЂР°РІР»РµРЅРёСЏ GroupBox
       video_form.ListBox2.Visible:=True;
       video_form.Splitter1.Visible:=True;
       //video_form.CheckBox1.Checked:=True;
       video_form.GroupBox1.Visible:=True;
-      //устанавливаем исходные параметры окна
+      //СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РёСЃС…РѕРґРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РѕРєРЅР°
       video_form.BorderStyle:=bsSizeable;
       video_form.windowState:= wsNormal;
       video_form.FormStyle:=fsNormal;
-      //задаем размеры окна вывода
+      //Р·Р°РґР°РµРј СЂР°Р·РјРµСЂС‹ РѕРєРЅР° РІС‹РІРѕРґР°
       pVideoWindow.SetWindowPosition(0,0,Panel1.ClientRect.Right,Panel1.ClientRect.Bottom);
       FullScreen:=False;
 end;
   inherited;
 end;
 
-//процедура зугрузки файлов в плейлист
+//РїСЂРѕС†РµРґСѓСЂР° Р·СѓРіСЂСѓР·РєРё С„Р°Р№Р»РѕРІ РІ РїР»РµР№Р»РёСЃС‚
 procedure Tvideo_form.AddPlayList;
 var
  j: Integer;
 begin
 OpenDialog1.Options:=[ofHideReadOnly,ofAllowMultiSelect,ofEnableSizing];
-OpenDialog1.Title  := 'Открытие файлов';
-//фильтр для файлов
-OpenDialog1.Filter := 'Файлы мультимедиа |*.mp3;*.wma;*.wav;*.vob;*.avi;*.mpg;*.mp4;*.mov;*.mpeg;*.flv;*.wmv;*.qt;|Все файлы|*.*';
-//проверяем если PlayList не пустой то запоминаем номер текущей записи
-//иначе устанавливаем номер записи 0 (первая позиция в PlayList)
+OpenDialog1.Title  := 'РћС‚РєСЂС‹С‚РёРµ С„Р°Р№Р»РѕРІ';
+//С„РёР»СЊС‚СЂ РґР»СЏ С„Р°Р№Р»РѕРІ
+OpenDialog1.Filter := 'Р¤Р°Р№Р»С‹ РјСѓР»СЊС‚РёРјРµРґРёР° |*.mp3;*.wma;*.wav;*.vob;*.avi;*.mpg;*.mp4;*.mov;*.mpeg;*.flv;*.wmv;*.qt;|Р’СЃРµ С„Р°Р№Р»С‹|*.*';
+//РїСЂРѕРІРµСЂСЏРµРј РµСЃР»Рё PlayList РЅРµ РїСѓСЃС‚РѕР№ С‚Рѕ Р·Р°РїРѕРјРёРЅР°РµРј РЅРѕРјРµСЂ С‚РµРєСѓС‰РµР№ Р·Р°РїРёСЃРё
+//РёРЅР°С‡Рµ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РЅРѕРјРµСЂ Р·Р°РїРёСЃРё 0 (РїРµСЂРІР°СЏ РїРѕР·РёС†РёСЏ РІ PlayList)
 if listbox2.Count<>0 then i:=ListBox2.ItemIndex else i:=0;
-//Диалог открытия файла
+//Р”РёР°Р»РѕРі РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°
 if not OpenDialog1.Execute then exit;
   Begin
    For j:=0 to OpenDialog1.Files.Count -1 do
@@ -333,16 +334,16 @@ if not OpenDialog1.Execute then exit;
       ListBox1.Items.Add(OpenDialog1.Files.Strings[j]);
     End;
   End;
-     //запоминаем имя файла текущей записи в плейлисте
+     //Р·Р°РїРѕРјРёРЅР°РµРј РёРјСЏ С„Р°Р№Р»Р° С‚РµРєСѓС‰РµР№ Р·Р°РїРёСЃРё РІ РїР»РµР№Р»РёСЃС‚Рµ
      Filename:=ListBox1.Items.Strings[i];
-     //Выделяем эту запись в PlayList
+     //Р’С‹РґРµР»СЏРµРј СЌС‚Сѓ Р·Р°РїРёСЃСЊ РІ PlayList
      ListBox1.ItemIndex:=i;
      ListBox2.ItemIndex:=i;
 end;
 
 
 //procedure Tvideo_form.CheckBox1Click(Sender: TObject);
-////показываем или скрываем плейлист
+////РїРѕРєР°Р·С‹РІР°РµРј РёР»Рё СЃРєСЂС‹РІР°РµРј РїР»РµР№Р»РёСЃС‚
 //begin
 //if video_form.CheckBox1.Checked=True then
 //                                      begin
@@ -365,7 +366,7 @@ begin
   if mode=play then
     begin
       pMediaControl.Stop;
-      mode:=Stop;//устанавливаем playmode -> стоп
+      mode:=Stop;//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј playmode -> СЃС‚РѕРї
       pMediaPosition.put_CurrentPosition(0);
       form2.MediaPlayer1.Play;
     end;
@@ -381,60 +382,108 @@ begin
   //main_image.FrameRect(0,0,Image1.Width,Image1.Height);
   video_form.Brush.Style := bsClear;
   video_form.BorderStyle := bsNone;
-// эти две скывают все, но форма как была так и есть, хоть и не видно.
+// СЌС‚Рё РґРІРµ СЃРєС‹РІР°СЋС‚ РІСЃРµ, РЅРѕ С„РѕСЂРјР° РєР°Рє Р±С‹Р»Р° С‚Р°Рє Рё РµСЃС‚СЊ, С…РѕС‚СЊ Рё РЅРµ РІРёРґРЅРѕ.
   video_form.TransparentColorValue := clblue;
   video_form.transparentcolor := true;
   video_form.Color := clblue;
-// эти три скрывают саму форму, теперь прям за кнопками можно производить действия
-  CoInitialize(nil);// инициализировать OLE
+// СЌС‚Рё С‚СЂРё СЃРєСЂС‹РІР°СЋС‚ СЃР°РјСѓ С„РѕСЂРјСѓ, С‚РµРїРµСЂСЊ РїСЂСЏРј Р·Р° РєРЅРѕРїРєР°РјРё РјРѕР¶РЅРѕ РїСЂРѕРёР·РІРѕРґРёС‚СЊ РґРµР№СЃС‚РІРёСЏ
+  CoInitialize(nil);// РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°С‚СЊ OLE
 end;
 
 procedure Tvideo_form.FormDestroy(Sender: TObject);
 begin
-  CoUninitialize;// деинициализировать OLE
+  CoUninitialize;// РґРµРёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°С‚СЊ OLE
 end;
 
 procedure Tvideo_form.FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
-  image9.left:=main_panel.Width-170;
-  image8.left:=main_panel.Width-60;
-  video_form.width:=video_form.width-10;
-  video_form.Height:=ceil(video_form.width*0.6875);
-  main_panel.width:=main_panel.width-10;
-  main_panel.Height:=ceil(main_panel.width*0.5875);
+  if mode<>play then
+  begin
+    image9.left:=main_panel.Width-170;
+    image8.left:=main_panel.Width-60;
+    video_form.width:=video_form.width-10;
+    video_form.Height:=ceil(video_form.width*0.6875);
+    main_panel.width:=main_panel.width-10;
+    main_panel.Height:=ceil(main_panel.width*0.5875);
+  end
+  else
+  begin
+    pMediaControl.Pause;
+    mode:=paused;//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј playmode -> РїР°СѓР·Р°
+    image9.left:=main_panel.Width-170;
+    image8.left:=main_panel.Width-60;
+    video_form.width:=video_form.width-10;
+    video_form.Height:=ceil(video_form.width*0.6875);
+    main_panel.width:=main_panel.width-10;
+    main_panel.Height:=ceil(main_panel.width*0.5875);
+    panel1.Width:=main_panel.Width;
+    pVideoWindow.SetWindowPosition(0,0,Panel1.ClientRect.Right,Panel1.ClientRect.Bottom);
+    Player;
+  end;
+
 end;
 
 procedure Tvideo_form.FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
-  image9.left:=main_panel.Width-170;
-  image8.left:=main_panel.Width-60;
-  video_form.width:=video_form.width+10;
-  video_form.Height:=ceil(video_form.width*0.6875);
-  main_panel.width:=main_panel.width+10;
-  main_panel.Height:=ceil(main_panel.width*0.5875);
+  if mode<>play then
+  begin
+    image9.left:=main_panel.Width-170;
+    image8.left:=main_panel.Width-60;
+    video_form.width:=video_form.width+10;
+    video_form.Height:=ceil(video_form.width*0.6875);
+    main_panel.width:=main_panel.width+10;
+    main_panel.Height:=ceil(main_panel.width*0.5875);
+  end
+  else
+  begin
+    pMediaControl.Pause;
+    mode:=paused;//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј playmode -> РїР°СѓР·Р°
+    image9.left:=main_panel.Width-170;
+    image8.left:=main_panel.Width-60;
+    video_form.width:=video_form.width+10;
+    video_form.Height:=ceil(video_form.width*0.6875);
+    main_panel.width:=main_panel.width+10;
+    main_panel.Height:=ceil(main_panel.width*0.5875);
+    panel1.Width:=main_panel.Width;
+    pVideoWindow.SetWindowPosition(0,0,Panel1.ClientRect.Right,Panel1.ClientRect.Bottom);
+    player;
+  end;
+//  if mode=play then
+// begin
+//   pMediaControl.Pause;
+//   mode:=paused;//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј playmode -> РїР°СѓР·Р°
+//   pVideoWindow.SetWindowPosition(0,0,Panel1.ClientRect.Right,Panel1.ClientRect.Bottom);
+//    if mode=play then
+//    begin
+//      image1.Tag:=1;
+//      pMediaPosition.put_Rate(Rate);
+//      exit;
+//    end;
+//    Player;
+// end;
 end;
 
 procedure Tvideo_form.ListBox2Click(Sender: TObject);
 begin
-  //устанавливаем одинаковую позицию в плейлистах при выборе
+  //СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РѕРґРёРЅР°РєРѕРІСѓСЋ РїРѕР·РёС†РёСЋ РІ РїР»РµР№Р»РёСЃС‚Р°С… РїСЂРё РІС‹Р±РѕСЂРµ
   i:=ListBox2.Itemindex;
   ListBox1.Itemindex:=i;
 end;
 
 procedure Tvideo_form.ListBox2DblClick(Sender: TObject);
 begin
-  //выбираем файл из плейлиста при двойном клике для воспроизведения
+  //РІС‹Р±РёСЂР°РµРј С„Р°Р№Р» РёР· РїР»РµР№Р»РёСЃС‚Р° РїСЂРё РґРІРѕР№РЅРѕРј РєР»РёРєРµ РґР»СЏ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ
   i:=ListBox2.Itemindex;
   ListBox1.Itemindex:=i;
   Filename:=ListBox1.Items.Strings[i];
   mode:=stop;
-  //вызываем процедуру проигрывания файла
+  //РІС‹Р·С‹РІР°РµРј РїСЂРѕС†РµРґСѓСЂСѓ РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ С„Р°Р№Р»Р°
   player;
 end;
 
-//процедура вызова PopupMenu при нажатии правой кнопкой мыши на плейлисте (ListBox)
+//РїСЂРѕС†РµРґСѓСЂР° РІС‹Р·РѕРІР° PopupMenu РїСЂРё РЅР°Р¶Р°С‚РёРё РїСЂР°РІРѕР№ РєРЅРѕРїРєРѕР№ РјС‹С€Рё РЅР° РїР»РµР№Р»РёСЃС‚Рµ (ListBox)
 procedure Tvideo_form.ListBox2MouseActivate(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y, HitTest: Integer;
   var MouseActivate: TMouseActivate);
@@ -442,33 +491,33 @@ var
 point : TPoint;
 begin
   if (Button = mbRight) then
-  // нажата правая мышь
+  // РЅР°Р¶Р°С‚Р° РїСЂР°РІР°СЏ РјС‹С€СЊ
   begin
     point.X := X;
     point.Y := Y;
     i := ListBox2.ItemAtPos(point, true);
-    // выделяем строку
+    // РІС‹РґРµР»СЏРµРј СЃС‚СЂРѕРєСѓ
     ListBox1.ItemIndex:=i;
     ListBox2.ItemIndex:=i;
       if i >= 0 then
-    // если щелкнули по полям списка
+    // РµСЃР»Рё С‰РµР»РєРЅСѓР»Рё РїРѕ РїРѕР»СЏРј СЃРїРёСЃРєР°
     begin
-    // поднимаем меню
+    // РїРѕРґРЅРёРјР°РµРј РјРµРЅСЋ
      PopupMenu1.Popup(ListBox2.ClientOrigin.X + X, ListBox2.ClientOrigin.Y + Y);
     end;
 end;
 end;
 
-//процедура удаления записей в плейлисте
+//РїСЂРѕС†РµРґСѓСЂР° СѓРґР°Р»РµРЅРёСЏ Р·Р°РїРёСЃРµР№ РІ РїР»РµР№Р»РёСЃС‚Рµ
 procedure Tvideo_form.N1Click(Sender: TObject);
 begin
-//очистка плейлиста
+//РѕС‡РёСЃС‚РєР° РїР»РµР№Р»РёСЃС‚Р°
 ListBox1.Clear;
 ListBox2.Clear;
 end;
 
 procedure Tvideo_form.N2Click(Sender: TObject);
-//удаление записи
+//СѓРґР°Р»РµРЅРёРµ Р·Р°РїРёСЃРё
 begin
 ListBox1.DeleteSelected;
 ListBox2.DeleteSelected;
@@ -476,32 +525,32 @@ end;
 
 procedure Tvideo_form.N3Click(Sender: TObject);
 begin
-//вызываем процедуру загрузки плейлиста
+//РІС‹Р·С‹РІР°РµРј РїСЂРѕС†РµРґСѓСЂСѓ Р·Р°РіСЂСѓР·РєРё РїР»РµР№Р»РёСЃС‚Р°
   AddPlayList;
 end;
 
-//Процедура перехода в полноэкранный режим и обратно
+//РџСЂРѕС†РµРґСѓСЂР° РїРµСЂРµС…РѕРґР° РІ РїРѕР»РЅРѕСЌРєСЂР°РЅРЅС‹Р№ СЂРµР¶РёРј Рё РѕР±СЂР°С‚РЅРѕ
 procedure Tvideo_form.Panel1DblClick(Sender: TObject);
 var
 Rct: TRect;
 begin
-if hr <> 0 then exit; //если файл не загружен выходим
-pVideoWindow.HideCursor(False); //показываем курсор
+if hr <> 0 then exit; //РµСЃР»Рё С„Р°Р№Р» РЅРµ Р·Р°РіСЂСѓР¶РµРЅ РІС‹С…РѕРґРёРј
+pVideoWindow.HideCursor(False); //РїРѕРєР°Р·С‹РІР°РµРј РєСѓСЂСЃРѕСЂ
 if FullScreen=False then begin
-//скрываем плейлист, сплиттер и панель управления
+//СЃРєСЂС‹РІР°РµРј РїР»РµР№Р»РёСЃС‚, СЃРїР»РёС‚С‚РµСЂ Рё РїР°РЅРµР»СЊ СѓРїСЂР°РІР»РµРЅРёСЏ
 video_form.ListBox2.Visible:=False;
 video_form.Splitter1.Visible:=false;
 video_form.GroupBox1.Visible:=false;
-//устанавливаем параметры формы
-video_form.BorderStyle:=bsNone; //без бордюра
-video_form.FormStyle :=fsstayOnTop; //поверх окон
-video_form.windowState:= wsMaximized;// на весь экран
-//устанавливаем вывод видео на всю ширину экрана
+//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РїР°СЂР°РјРµС‚СЂС‹ С„РѕСЂРјС‹
+video_form.BorderStyle:=bsNone; //Р±РµР· Р±РѕСЂРґСЋСЂР°
+video_form.FormStyle :=fsstayOnTop; //РїРѕРІРµСЂС… РѕРєРѕРЅ
+video_form.windowState:= wsMaximized;// РЅР° РІРµСЃСЊ СЌРєСЂР°РЅ
+//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РІС‹РІРѕРґ РІРёРґРµРѕ РЅР° РІСЃСЋ С€РёСЂРёРЅСѓ СЌРєСЂР°РЅР°
 pVideoWindow.SetWindowPosition(0,0,screen.Width,screen.Height);
 FullScreen:=True;
 end
 else begin
-// восстанавливаем значения при выходе из полноэкранного режима
+// РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р·РЅР°С‡РµРЅРёСЏ РїСЂРё РІС‹С…РѕРґРµ РёР· РїРѕР»РЅРѕСЌРєСЂР°РЅРЅРѕРіРѕ СЂРµР¶РёРјР°
 //if form1.CheckBox1.Checked=true then  video_form.ListBox2.Visible:=True;
 video_form.GroupBox1.Visible:=True;
 video_form.Splitter1.Visible:=True;
@@ -513,19 +562,19 @@ FullScreen:=False;
 end;
 end;
 
-//процедура показывания плейлиста и панели управления при наведении на них мыши
+//РїСЂРѕС†РµРґСѓСЂР° РїРѕРєР°Р·С‹РІР°РЅРёСЏ РїР»РµР№Р»РёСЃС‚Р° Рё РїР°РЅРµР»Рё СѓРїСЂР°РІР»РµРЅРёСЏ РїСЂРё РЅР°РІРµРґРµРЅРёРё РЅР° РЅРёС… РјС‹С€Рё
 procedure Tvideo_form.Panel1MouseMove(Sender: TObject; Shift: TShiftState; X,
   Y: Integer);
 begin
-//выходим если режим не полноэкранный
+//РІС‹С…РѕРґРёРј РµСЃР»Рё СЂРµР¶РёРј РЅРµ РїРѕР»РЅРѕСЌРєСЂР°РЅРЅС‹Р№
 if FullScreen<>True then Exit;
-//скрываем плейлист если курсор мыши с него уходит
+//СЃРєСЂС‹РІР°РµРј РїР»РµР№Р»РёСЃС‚ РµСЃР»Рё РєСѓСЂСЃРѕСЂ РјС‹С€Рё СЃ РЅРµРіРѕ СѓС…РѕРґРёС‚
 if (mouse.CursorPos.X<panel1.Width) and (ListBox2.Visible=True) then
 begin
 video_form.ListBox2.Visible:=False;
 video_form.Splitter1.Visible:=False;
 end;
-//показываем плейлист при наведении на его положение мыши, если он был включен
+//РїРѕРєР°Р·С‹РІР°РµРј РїР»РµР№Р»РёСЃС‚ РїСЂРё РЅР°РІРµРґРµРЅРёРё РЅР° РµРіРѕ РїРѕР»РѕР¶РµРЅРёРµ РјС‹С€Рё, РµСЃР»Рё РѕРЅ Р±С‹Р» РІРєР»СЋС‡РµРЅ
 if (mouse.CursorPos.X>=panel1.Width-ListBox2.Width) and (ListBox2.Visible=False) then
 begin
 //if form1.CheckBox1.Checked=true then
@@ -535,7 +584,7 @@ begin
 //  end;
 end;
 
-//аналогично с панелью упралением проигрыванием
+//Р°РЅР°Р»РѕРіРёС‡РЅРѕ СЃ РїР°РЅРµР»СЊСЋ СѓРїСЂР°Р»РµРЅРёРµРј РїСЂРѕРёРіСЂС‹РІР°РЅРёРµРј
 if (mouse.CursorPos.Y<panel1.Height) and (groupbox1.Visible=True) then
 begin
 groupbox1.Visible:=false;
@@ -547,7 +596,7 @@ groupbox1.Visible:=True;
 end;
 end;
 
-//Процедура изменения размеов окна проигрывания при изменении размеров панели
+//РџСЂРѕС†РµРґСѓСЂР° РёР·РјРµРЅРµРЅРёСЏ СЂР°Р·РјРµРѕРІ РѕРєРЅР° РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ РїСЂРё РёР·РјРµРЅРµРЅРёРё СЂР°Р·РјРµСЂРѕРІ РїР°РЅРµР»Рё
 procedure Tvideo_form.Panel1Resize(Sender: TObject);
 begin
  if mode=play then
@@ -556,14 +605,14 @@ begin
 end;
 end;
 
-//процедура изменения позиции проигрывания при изменении позиции ProgressBar (перемотка)
+//РїСЂРѕС†РµРґСѓСЂР° РёР·РјРµРЅРµРЅРёСЏ РїРѕР·РёС†РёРё РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ РїСЂРё РёР·РјРµРЅРµРЅРёРё РїРѕР·РёС†РёРё ProgressBar (РїРµСЂРµРјРѕС‚РєР°)
 procedure Tvideo_form.ProgressBar1MouseMove(Sender: TObject; Shift: TShiftState; X,
   Y: Integer);
 var
   p: real;
 begin
 if hr = 0 then  begin
-  if ssleft in shift then //если нажата левая кнопка мыши
+  if ssleft in shift then //РµСЃР»Рё РЅР°Р¶Р°С‚Р° Р»РµРІР°СЏ РєРЅРѕРїРєР° РјС‹С€Рё
   begin
     p:=ProgressBar1.Max/ProgressBar1.Width;
     ProgressBar1.Position:=round(x*p);
@@ -575,11 +624,11 @@ if hr = 0 then  begin
 end;
 end;
 
-//процедура воспроизведения
+//РїСЂРѕС†РµРґСѓСЂР° РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ
 procedure Tvideo_form.SpeedButton1Click(Sender: TObject);
 begin
-  //Проверяем если воспроизведение уже идет то устанавливаем
-  //нормальную скорость воспроизведения и выходим
+  //РџСЂРѕРІРµСЂСЏРµРј РµСЃР»Рё РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ СѓР¶Рµ РёРґРµС‚ С‚Рѕ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј
+  //РЅРѕСЂРјР°Р»СЊРЅСѓСЋ СЃРєРѕСЂРѕСЃС‚СЊ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ Рё РІС‹С…РѕРґРёРј
     if mode=play then
     begin
       image1.Tag:=1;
@@ -589,31 +638,31 @@ begin
     Player;
 end;
 
-//процедура паузы
+//РїСЂРѕС†РµРґСѓСЂР° РїР°СѓР·С‹
 procedure Tvideo_form.SpeedButton2Click(Sender: TObject);
 begin
- //Проверяем идет ли воспроизведение
+ //РџСЂРѕРІРµСЂСЏРµРј РёРґРµС‚ Р»Рё РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ
  if mode=play then
  begin
    pMediaControl.Pause;
-   mode:=paused;//устанавливаем playmode -> пауза
+   mode:=paused;//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј playmode -> РїР°СѓР·Р°
  end;
 end;
 
-//процедура остановки
+//РїСЂРѕС†РµРґСѓСЂР° РѕСЃС‚Р°РЅРѕРІРєРё
 procedure Tvideo_form.SpeedButton3Click(Sender: TObject);
 begin
-//Проверяем идет ли воспроизведение
+//РџСЂРѕРІРµСЂСЏРµРј РёРґРµС‚ Р»Рё РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ
  if mode=play then
  begin
    pMediaControl.Stop;
-   mode:=Stop;//устанавливаем playmode -> стоп
-   //задаем начальное положение проигравания
+   mode:=Stop;//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј playmode -> СЃС‚РѕРї
+   //Р·Р°РґР°РµРј РЅР°С‡Р°Р»СЊРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ РїСЂРѕРёРіСЂР°РІР°РЅРёСЏ
    pMediaPosition.put_CurrentPosition(0);
  end;
 end;
 
-//процедура замедленного воспроизведения
+//РїСЂРѕС†РµРґСѓСЂР° Р·Р°РјРµРґР»РµРЅРЅРѕРіРѕ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ
 procedure Tvideo_form.SpeedButton4Click(Sender: TObject);
 var  pdRate: Double;
 begin
@@ -623,7 +672,7 @@ if mode=play then
   end;
 end;
 
-//процедура ускоренного воспроизведения
+//РїСЂРѕС†РµРґСѓСЂР° СѓСЃРєРѕСЂРµРЅРЅРѕРіРѕ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ
 procedure Tvideo_form.SpeedButton5Click(Sender: TObject);
 var  pdRate: Double;
 begin
@@ -651,24 +700,24 @@ ValLen: Double;
 plVolume:Longint;
 db  : integer;
 begin
-//выводим время
+//РІС‹РІРѕРґРёРј РІСЂРµРјСЏ
 //Panel4.Caption:=TimeToStr(SysUtils.Time);
-//проверяем режим воспроизведения, если не Play то выходим
+//РїСЂРѕРІРµСЂСЏРµРј СЂРµР¶РёРј РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ, РµСЃР»Рё РЅРµ Play С‚Рѕ РІС‹С…РѕРґРёРј
 if hr <> 0 then Exit;
-//время проигрывания фильма
-//считываем всю длину фильма в секундах
+//РІСЂРµРјСЏ РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ С„РёР»СЊРјР°
+//СЃС‡РёС‚С‹РІР°РµРј РІСЃСЋ РґР»РёРЅСѓ С„РёР»СЊРјР° РІ СЃРµРєСѓРЅРґР°С…
 pMediaPosition.get_Duration(pDuration);
-//задаем максимальное положение ProgressBar
+//Р·Р°РґР°РµРј РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РїРѕР»РѕР¶РµРЅРёРµ ProgressBar
 ProgressBar1.Max:=round(pDuration);
-//считаваем сколько секунд прошло от начала воспроизведения
+//СЃС‡РёС‚Р°РІР°РµРј СЃРєРѕР»СЊРєРѕ СЃРµРєСѓРЅРґ РїСЂРѕС€Р»Рѕ РѕС‚ РЅР°С‡Р°Р»Р° РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ
 pMediaPosition.get_CurrentPosition(pCurrent);
-//задаем текущее положение ProgressBar
+//Р·Р°РґР°РµРј С‚РµРєСѓС‰РµРµ РїРѕР»РѕР¶РµРЅРёРµ ProgressBar
 ProgressBar1.Position:=round(pCurrent);
- //воспроизведение следующего фильма
-//если время проигрывания равно длине фильма по времени,
+ //РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ СЃР»РµРґСѓСЋС‰РµРіРѕ С„РёР»СЊРјР°
+//РµСЃР»Рё РІСЂРµРјСЏ РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ СЂР°РІРЅРѕ РґР»РёРЅРµ С„РёР»СЊРјР° РїРѕ РІСЂРµРјРµРЅРё,
 if pCurrent=pDuration then
 begin
-//то выбираем следующую запись из плейлиста
+//С‚Рѕ РІС‹Р±РёСЂР°РµРј СЃР»РµРґСѓСЋС‰СѓСЋ Р·Р°РїРёСЃСЊ РёР· РїР»РµР№Р»РёСЃС‚Р°
 if i<ListBox2.Items.Count-1 then
    begin
      inc(i);
@@ -678,41 +727,41 @@ if i<ListBox2.Items.Count-1 then
      mode:=stop;
      player;
    end
-//если лист закончился - выходим
+//РµСЃР»Рё Р»РёСЃС‚ Р·Р°РєРѕРЅС‡РёР»СЃСЏ - РІС‹С…РѕРґРёРј
    else exit;
 end;
 
-//Установка громкости, громкость задается от -10000 до 0
-//к сожелению при таком регулировании звук начинает заметно прибавляться только в конце шкалы
+//РЈСЃС‚Р°РЅРѕРІРєР° РіСЂРѕРјРєРѕСЃС‚Рё, РіСЂРѕРјРєРѕСЃС‚СЊ Р·Р°РґР°РµС‚СЃСЏ РѕС‚ -10000 РґРѕ 0
+//Рє СЃРѕР¶РµР»РµРЅРёСЋ РїСЂРё С‚Р°РєРѕРј СЂРµРіСѓР»РёСЂРѕРІР°РЅРёРё Р·РІСѓРє РЅР°С‡РёРЅР°РµС‚ Р·Р°РјРµС‚РЅРѕ РїСЂРёР±Р°РІР»СЏС‚СЊСЃСЏ С‚РѕР»СЊРєРѕ РІ РєРѕРЅС†Рµ С€РєР°Р»С‹
 //pBasicAudio.put_Volume(TrackBar1.Position*100-10000);
 
-//еще один вариант регулирования громкости. Более плавное регулирование звука
+//РµС‰Рµ РѕРґРёРЅ РІР°СЂРёР°РЅС‚ СЂРµРіСѓР»РёСЂРѕРІР°РЅРёСЏ РіСЂРѕРјРєРѕСЃС‚Рё. Р‘РѕР»РµРµ РїР»Р°РІРЅРѕРµ СЂРµРіСѓР»РёСЂРѕРІР°РЅРёРµ Р·РІСѓРєР°
 plVolume:= (65535 * TrackBar1.Position) div 100;
-//нормируем характеристику уровня громкости
+//РЅРѕСЂРјРёСЂСѓРµРј С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєСѓ СѓСЂРѕРІРЅСЏ РіСЂРѕРјРєРѕСЃС‚Рё
 db:= trunc(33.22 * 100 * ln((plVolume+1e-6)/65535)/ln(10));
 pBasicAudio.put_Volume(db);
 
 
-//делаем вычисление времени
+//РґРµР»Р°РµРј РІС‹С‡РёСЃР»РµРЅРёРµ РІСЂРµРјРµРЅРё
 TrackLen:=pDuration;
 TrackPos:=pCurrent;
-//переводим секунды в часы
+//РїРµСЂРµРІРѕРґРёРј СЃРµРєСѓРЅРґС‹ РІ С‡Р°СЃС‹
 ValPos:=TrackPos / (24 * 3600);
 ValLen:=TrackLen / (24 * 3600);
-//Выводим данные о времени на форму в Label1 и Label2
+//Р’С‹РІРѕРґРёРј РґР°РЅРЅС‹Рµ Рѕ РІСЂРµРјРµРЅРё РЅР° С„РѕСЂРјСѓ РІ Label1 Рё Label2
 Label2.Caption:=FormatDateTime('hh:mm:ss',ValPos);
 Label3.Caption:=FormatDateTime('hh:mm:ss',ValLen);
 end;
 
-//процедура скрытия курсора в полноэкранном режиме
+//РїСЂРѕС†РµРґСѓСЂР° СЃРєСЂС‹С‚РёСЏ РєСѓСЂСЃРѕСЂР° РІ РїРѕР»РЅРѕСЌРєСЂР°РЅРЅРѕРј СЂРµР¶РёРјРµ
 procedure Tvideo_form.Timer2Timer(Sender: TObject);
 begin
 if FullScreen<>True then Exit;
-//проверяем положение курсора и если он не отклонился
-//от своего положения больше чем на пять точек, то скрываем курсор иначе показываем
+//РїСЂРѕРІРµСЂСЏРµРј РїРѕР»РѕР¶РµРЅРёРµ РєСѓСЂСЃРѕСЂР° Рё РµСЃР»Рё РѕРЅ РЅРµ РѕС‚РєР»РѕРЅРёР»СЃСЏ
+//РѕС‚ СЃРІРѕРµРіРѕ РїРѕР»РѕР¶РµРЅРёСЏ Р±РѕР»СЊС€Рµ С‡РµРј РЅР° РїСЏС‚СЊ С‚РѕС‡РµРє, С‚Рѕ СЃРєСЂС‹РІР°РµРј РєСѓСЂСЃРѕСЂ РёРЅР°С‡Рµ РїРѕРєР°Р·С‹РІР°РµРј
 if ((xn-5)<=mouse.CursorPos.X) and ((yn-5)<=mouse.CursorPos.Y) and ((xn+5)>=mouse.CursorPos.X) and ((yn+5)>=mouse.CursorPos.Y)then
 pVideoWindow.HideCursor(true)  else pVideoWindow.HideCursor(False);
-//запоминаем координаты курсора
+//Р·Р°РїРѕРјРёРЅР°РµРј РєРѕРѕСЂРґРёРЅР°С‚С‹ РєСѓСЂСЃРѕСЂР°
 xn:=mouse.CursorPos.X;
 yn:=mouse.CursorPos.Y;
 end;
@@ -731,3 +780,4 @@ begin
 end;
 
 end.
+

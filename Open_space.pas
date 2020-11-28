@@ -54,6 +54,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure Timer2Timer(Sender: TObject);
+    procedure N4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -189,6 +190,11 @@ begin
     Form2.Top:= Form2.Top+y-ny;
     Form2.Left:= Form2.Left+x-nx;
   end;
+end;
+
+procedure TForm2.N4Click(Sender: TObject);
+begin
+  Aboutform.ShowModal;
 end;
 
 procedure TForm2.N6Click(Sender: TObject);
