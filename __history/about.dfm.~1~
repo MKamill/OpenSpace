@@ -3813,7 +3813,7 @@ object AboutForm: TAboutForm
     OnClick = Image3Click
   end
   object Image8: TImage
-    Left = 63
+    Left = 199
     Top = 8
     Width = 73
     Height = 58

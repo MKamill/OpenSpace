@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.835,=C:\Users\79876\Desktop\OS\about.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.604,=C:\Users\79876\Desktop\OpenSpace\paint.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.344,=C:\Users\79876\Desktop\OpenSpace\TUFPaint.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.604,=C:\Users\79876\Desktop\OpenSpace\paint.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.084,=C:\Users\79876\Desktop\OpenSpace\SUFPaint.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.667,=C:\Users\79876\Desktop\OpenSpace\text_editor.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.606,C:\Users\79876\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\79876\Desktop\OpenSpace\Open_space_project.dproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.967,C:\Users\79876\Documents\Embarcadero\Studio\Projects\Unit2.dfm=C:\Users\79876\Desktop\OpenSpace\Open_space.dfm</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.827,=C:\Users\79876\Desktop\OpenSpace\text_editor.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.478,C:\Users\79876\Desktop\OpenSpace\text_editor.pas=</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.055,=C:\Users\79876\Desktop\OpenSpace\photo_view_.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.637,=C:\Users\79876\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.986,=C:\Users\79876\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.967,C:\Users\79876\Documents\Embarcadero\Studio\Projects\Unit2.pas=C:\Users\79876\Desktop\OpenSpace\Open_space.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.051,=C:\Users\79876\Desktop\OpenSpace\main.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.325,=C:\Users\79876\Desktop\OpenSpace\video.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.835,=C:\Users\79876\Desktop\OS\about.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.967,C:\Users\79876\Desktop\OpenSpace\Open_space.dfm=C:\Users\79876\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.478,C:\Users\79876\Desktop\OpenSpace\text_editor.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.827,=C:\Users\79876\Desktop\OpenSpace\text_editor.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.667,=C:\Users\79876\Desktop\OpenSpace\text_editor.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.967,C:\Users\79876\Desktop\OpenSpace\Open_space.pas=C:\Users\79876\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.055,=C:\Users\79876\Desktop\OpenSpace\photo_view_.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.986,=C:\Users\79876\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.637,=C:\Users\79876\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.606,C:\Users\79876\Desktop\OpenSpace\Open_space_project.dproj=C:\Users\79876\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.804,=C:\Users\79876\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.413,=C:\Users\79876\Desktop\OpenSpace\LW9.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.911,C:\Users\79876\Desktop\OpenSpace\main.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.051,=C:\Users\79876\Desktop\OpenSpace\main.pas</Transaction>
   </Transactions>
 </BorlandProject>

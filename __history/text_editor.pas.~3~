@@ -162,7 +162,6 @@ type
     procedure Image9Click(Sender: TObject);
     procedure Image15Click(Sender: TObject);
     procedure N34Click(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -272,11 +271,6 @@ begin
   RichEdit_MoveTo(RichEdit1,RichEdit1.CaretPos.Y+1,0);
   Application.ProcessMessages;
   RichEdit1.SetFocus;
-end;
-
-procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  nt
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);

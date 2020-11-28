@@ -1,7 +1,6 @@
 object Form1: TForm1
   Left = 95
   Top = 55
-  Hint = #1055#1077#1088#1077#1081#1090#1080' '#1082' '#1074#1080#1076#1077#1086#1087#1083#1077#1077#1088#1091
   Caption = #1058#1077#1082#1089#1090#1086#1074#1099#1081' '#1088#1077#1076#1072#1082#1090#1086#1088' [ '#1085#1086#1074#1099#1081' '#1092#1072#1081#1083' ]'
   ClientHeight = 511
   ClientWidth = 784
@@ -2144,7 +2143,10 @@ object Form1: TForm1
     Top = 0
     Width = 784
     Height = 511
+    Hint = ' '
+    ParentCustomHint = False
     Align = alClient
+    ParentShowHint = False
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000006400000
       044B0806000000DC546F4D0000000467414D410000B18F0BFC61050000000662
@@ -5349,6 +5351,7 @@ object Form1: TForm1
       2D31312D32325431313A32363A32352B30323A3030427A796C00000025744558
       74646174653A6D6F6469667900323032302D31312D32325431313A32363A3235
       2B30323A30303327C1D00000000049454E44AE426082}
+    ShowHint = False
     Stretch = True
     OnMouseDown = Image1MouseDown
     ExplicitTop = 8
@@ -5372,6 +5375,7 @@ object Form1: TForm1
     Width = 55
     Height = 41
     Cursor = crHandPoint
+    Hint = #1042#1099#1093#1086#1076
     Stretch = True
     OnClick = N4Click
   end
@@ -5381,6 +5385,7 @@ object Form1: TForm1
     Width = 55
     Height = 41
     Cursor = crHandPoint
+    Hint = #1057#1074#1077#1088#1085#1091#1090#1100
     Stretch = True
     OnClick = Image4Click
   end
@@ -7392,12 +7397,15 @@ object Form1: TForm1
     Constraints.MinHeight = 410
     Constraints.MinWidth = 720
     ParentBackground = False
+    ParentShowHint = False
+    ShowHint = False
     TabOrder = 0
     object RichEdit1: TRichEdit
       Left = 1
       Top = 65
       Width = 694
       Height = 344
+      Hint = ' '
       Align = alClient
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
@@ -7405,7 +7413,9 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      ParentShowHint = False
       PopupMenu = PopupMenu1
+      ShowHint = False
       TabOrder = 0
       Zoom = 100
     end
@@ -7415,6 +7425,7 @@ object Form1: TForm1
       Top = 23
       Width = 712
       Height = 39
+      Hint = ' '
       ParentCustomHint = False
       ButtonHeight = 41
       ButtonWidth = 55
@@ -7595,7 +7606,7 @@ object Form1: TForm1
         Left = 504
         Top = 0
         Cursor = crHandPoint
-        Hint = 'Font Select'
+        Hint = #1064#1088#1080#1092#1090
         ParentCustomHint = False
         Caption = 'Select &Font...'
         ImageIndex = 8
@@ -7641,6 +7652,8 @@ object Form1: TForm1
       Height = 19
       Align = alTop
       ParentBackground = False
+      ParentShowHint = False
+      ShowHint = False
       TabOrder = 2
       object Panel3: TPanel
         Left = 1
@@ -7648,6 +7661,7 @@ object Form1: TForm1
         Width = 60
         Height = 17
         Cursor = crHandPoint
+        Hint = #1060#1072#1081#1083
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 0
@@ -7655,7 +7669,9 @@ object Form1: TForm1
         Align = alLeft
         Caption = #1060#1072#1081#1083
         ParentBackground = False
+        ParentShowHint = False
         PopupMenu = PopupMenu1
+        ShowHint = True
         TabOrder = 0
         OnClick = Panel3Click
       end
@@ -7665,6 +7681,7 @@ object Form1: TForm1
         Width = 80
         Height = 17
         Cursor = crHandPoint
+        Hint = #1055#1088#1072#1074#1082#1072
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 0
@@ -7672,6 +7689,8 @@ object Form1: TForm1
         Align = alLeft
         Caption = #1055#1088#1072#1074#1082#1072
         ParentBackground = False
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 1
         OnClick = Panel4Click
       end
@@ -7681,12 +7700,15 @@ object Form1: TForm1
         Width = 84
         Height = 17
         Cursor = crHandPoint
+        Hint = #1064#1088#1080#1092#1090
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 0
         Align = alLeft
         Caption = #1064#1088#1080#1092#1090
         ParentBackground = False
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 2
         OnClick = Panel5Click
       end
@@ -7696,12 +7718,15 @@ object Form1: TForm1
         Width = 113
         Height = 17
         Cursor = crHandPoint
+        Hint = #1042#1099#1088#1072#1074#1085#1080#1074#1072#1085#1080#1077
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 0
         Align = alLeft
         Caption = #1042#1099#1088#1072#1074#1085#1080#1074#1072#1085#1080#1077
         ParentBackground = False
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 3
         OnClick = Panel6Click
       end
@@ -7711,6 +7736,7 @@ object Form1: TForm1
         Width = 106
         Height = 17
         Cursor = crHandPoint
+        Hint = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 0
@@ -7719,7 +7745,7 @@ object Form1: TForm1
         Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077
         ParentBackground = False
         ParentShowHint = False
-        ShowHint = False
+        ShowHint = True
         TabOrder = 4
         OnClick = Panel7Click
       end
@@ -7729,7 +7755,11 @@ object Form1: TForm1
       Top = 65
       Width = 24
       Height = 344
+      Hint = ' '
       Align = alRight
+      ParentShowHint = False
+      ShowCaption = False
+      ShowHint = False
       TabOrder = 3
       object Button3: TButton
         Left = 1
@@ -7737,8 +7767,11 @@ object Form1: TForm1
         Width = 22
         Height = 25
         Cursor = crHandPoint
+        Hint = #1042#1074#1077#1088#1093
         Align = alTop
         Caption = #9650
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 0
         OnClick = Button3Click
         OnMouseDown = Button3MouseDown
@@ -7750,8 +7783,11 @@ object Form1: TForm1
         Width = 22
         Height = 25
         Cursor = crHandPoint
+        Hint = #1042#1085#1080#1079
         Align = alBottom
         Caption = #9660
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 1
         OnClick = Button4Click
         OnMouseDown = Button4MouseDown

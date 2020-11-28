@@ -162,7 +162,6 @@ type
     procedure Image9Click(Sender: TObject);
     procedure Image15Click(Sender: TObject);
     procedure N34Click(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -272,11 +271,6 @@ begin
   RichEdit_MoveTo(RichEdit1,RichEdit1.CaretPos.Y+1,0);
   Application.ProcessMessages;
   RichEdit1.SetFocus;
-end;
-
-procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  nt
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -473,11 +467,8 @@ end;
 
 procedure TForm1.N3Click(Sender: TObject);
 begin
-  form2.visible:=false;
   if savedialog1.Execute then richedit1.Lines.SaveToFile(savedialog1.filename);
   Form1.Caption:='Текстовый редактор [ '+savedialog1.filename+' ]';
-  form2.visible:=true;
-  Form1.SetFocus;
 end;
 
 procedure TForm1.N4Click(Sender: TObject);
@@ -534,14 +525,11 @@ end;
 
 procedure TForm1.Panel5Click(Sender: TObject);
 begin
-  form2.visible:=false;
   if FontDialog1.Execute then
                          begin
                            RichEdit1.SelAttributes.Assign(FontDialog1.font);
                            RichEdit1.SetFocus;
                          end;
-  form2.visible:=true;
-  Form1.SetFocus;
 end;
 
 procedure TForm1.Panel6Click(Sender: TObject);
