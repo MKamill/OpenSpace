@@ -10,13 +10,7 @@ uses
 type
   TForm2 = class(TForm)
     main_image: TImage;
-    Image1: TImage;
-    Image2: TImage;
-    Image3: TImage;
-    Image4: TImage;
     Image14: TImage;
-    Image5: TImage;
-    Image6: TImage;
     Image7: TImage;
     PopupMenu1: TPopupMenu;
     N11: TMenuItem;
@@ -38,6 +32,12 @@ type
     Image8: TImage;
     Image9: TImage;
     Image10: TImage;
+    Image2: TImage;
+    Image1: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
     procedure Image1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure main_imageMouseDown(Sender: TObject; Button: TMouseButton;
