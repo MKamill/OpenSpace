@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, mmsystem, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
-  Vcl.Menus, Vcl.MPlayer;
+  Vcl.Menus, Vcl.MPlayer, Vcl.Imaging.GIFImg;
 
 type
   TForm2 = class(TForm)
@@ -34,6 +34,10 @@ type
     MediaPlayer1: TMediaPlayer;
     MediaPlayer2: TMediaPlayer;
     Timer2: TTimer;
+    Timer3: TTimer;
+    Image8: TImage;
+    Image9: TImage;
+    Image10: TImage;
     procedure Image1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure main_imageMouseDown(Sender: TObject; Button: TMouseButton;
@@ -55,6 +59,7 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure Timer2Timer(Sender: TObject);
     procedure N4Click(Sender: TObject);
+    procedure Timer3Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -66,7 +71,7 @@ var
   Form2: TForm2;
 
 implementation
-uses text_editor,photo_view_,video, LW9, paint, about;
+uses text_editor,photo_view_,video, LW9, paint, about, gifimage;
 {$R *.dfm}
 
 procedure CheckFocus;
@@ -85,6 +90,8 @@ procedure TForm2.FormCreate(Sender: TObject);
 var
   Comp : TComponent;
 begin
+  (image8.Picture.Graphic as TGIFImage).Animate := True;
+  (image9.Picture.Graphic as TGIFImage).Animate := True;
   n6.Checked:=true;
   MediaPlayer1.FileName:='C:\Users\79876\Desktop\OpenSpace\Sounds\ss.wav';
   MediaPlayer1.Open;
@@ -240,6 +247,12 @@ end;
 procedure TForm2.Timer2Timer(Sender: TObject);
 begin
   //if n7.Checked then mediaplayer1.Stop;
+end;
+
+procedure TForm2.Timer3Timer(Sender: TObject);
+begin
+//  image8.Top:=image8.Top+5;
+//  image8.left:=image8.left-5;
 end;
 
 end.

@@ -10,7 +10,8 @@ uses
   paint in 'paint.pas' {PaintForm},
   SUFPaint in 'SUFPaint.pas' {SUFPaintForm},
   TUFPaint in 'TUFPaint.pas' {TUFPaintForm},
-  about in 'about.pas' {AboutForm};
+  about in 'about.pas' {AboutForm},
+  GifImage in 'GifImage.pas';
 
 {$R *.res}
 
