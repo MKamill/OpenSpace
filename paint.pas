@@ -83,6 +83,8 @@ type
     ActionList1: TActionList;
     EditUndo1: TEditUndo;
     UpDown1: TUpDown;
+    ActionList2: TActionList;
+    Action1: TAction;
     procedure FormCreate(Sender: TObject);
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
@@ -167,6 +169,8 @@ type
       MousePos: TPoint; var Handled: Boolean);
     procedure Timer1Timer(Sender: TObject);
     procedure UpDown1Click(Sender: TObject; Button: TUDBtnType);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Action1Execute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -208,6 +212,21 @@ begin
   PaintForm.TransparentColorValue :=clMoneyGreen ;
   PaintForm.transparentcolor := true;
   PaintForm.Color := clMoneyGreen ;
+end;
+
+procedure TPaintForm.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key=68 then
+  begin
+     if backp = true then
+      begin
+        img3.picture.Assign(img1.Picture);
+        img1.picture.Assign(img2.Picture);
+        nextp := true;
+      end;
+      backp := false;
+  end;
 end;
 
 procedure TPaintForm.FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
@@ -307,11 +326,17 @@ end;
 
 procedure TPaintForm.Image4Click(Sender: TObject);
 begin
+  form2.visible:=false;
   if fsave <> true then
                    begin
                      TUFPaintForm.ShowModal;
                    end;
-  if fsave = true then PaintForm.Close;
+  if fsave = true then
+  begin
+    PaintForm.Close;
+    form2.visible:=true;
+    form2.SetFocus;
+  end;
 end;
 
 procedure TPaintForm.Image5Click(Sender: TObject);
@@ -319,6 +344,17 @@ begin
   if (not Assigned(video_form)) then
        video_form:=Tvideo_form.Create(Self);
    video_form.Show;
+end;
+
+procedure TPaintForm.Action1Execute(Sender: TObject);
+begin
+  if backp = true then
+  begin
+    img3.picture.Assign(img1.Picture);
+    img1.picture.Assign(img2.Picture);
+    nextp := true;
+  end;
+  backp := false;
 end;
 
 procedure TPaintForm.bmptopng1Click(Sender: TObject);

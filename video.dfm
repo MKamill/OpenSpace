@@ -4942,7 +4942,7 @@ object video_form: Tvideo_form
     Width = 30
     Height = 30
     Cursor = crHandPoint
-    Hint = #1055#1077#1088#1077#1081#1090#1080' '#1082' '#1073#1072#1079#1077' '#1076#1072#1085#1085#1099#1093
+    Hint = #1055#1077#1088#1077#1081#1090#1080' '#1082' '#1075#1088#1072#1092#1080#1095#1077#1089#1082#1086#1084#1091' '#1088#1077#1076#1072#1082#1090#1086#1088#1091
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000002000000
       02000806000000F478D4FA00000006624B474400FF00FF00FFA0BDA793000088
@@ -6079,7 +6079,6 @@ object video_form: Tvideo_form
       TabOrder = 0
       OnMouseMove = Panel1MouseMove
       OnResize = Panel1Resize
-      ExplicitLeft = -5
       object Panel5: TPanel
         Left = 0
         Top = 0
@@ -6087,10 +6086,6 @@ object video_form: Tvideo_form
         Height = 326
         Align = alClient
         TabOrder = 0
-        ExplicitLeft = 272
-        ExplicitTop = 144
-        ExplicitWidth = 185
-        ExplicitHeight = 41
       end
     end
     object ListBox1: TListBox
@@ -6592,7 +6587,7 @@ object video_form: Tvideo_form
           Width = 33
           Height = 35
           Cursor = crHandPoint
-          Hint = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1074#1080#1076#1077#1086' '#1080#1079'...'
+          Hint = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1092#1072#1081#1083
           Align = alLeft
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D49484452000000600000
@@ -6663,8 +6658,6 @@ object video_form: Tvideo_form
           BackgroundColor = clMedGray
           TabOrder = 0
           OnMouseMove = ProgressBar1MouseMove
-          ExplicitLeft = 0
-          ExplicitTop = 3
         end
         object Panel3: TPanel
           Left = 603
@@ -6753,7 +6746,6 @@ object video_form: Tvideo_form
       OnClick = ListBox2Click
       OnDblClick = ListBox2DblClick
       OnMouseActivate = ListBox2MouseActivate
-      ExplicitTop = 326
     end
   end
   object OpenDialog1: TOpenDialog

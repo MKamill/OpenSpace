@@ -98,9 +98,9 @@ begin
   MediaPlayer1.Play;
   Form2.Brush.Style := bsClear;
   Form2.BorderStyle := bsNone;
-  Form2.TransparentColorValue := clcream;
+  Form2.TransparentColorValue := clgray;
   Form2.transparentcolor := true;
-  Form2.Color := clcream;
+  Form2.Color := clgray;
 end;
 
 procedure TForm2.FormKeyDown(Sender: TObject; var Key: Word;

@@ -21,6 +21,7 @@ object PaintForm: TPaintForm
   Position = poDesigned
   ShowHint = True
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnMouseWheelDown = FormMouseWheelDown
   OnMouseWheelUp = FormMouseWheelUp
   PixelsPerInch = 96
@@ -4168,7 +4169,7 @@ object PaintForm: TPaintForm
     Width = 30
     Height = 30
     Cursor = crHandPoint
-    Hint = #1055#1077#1088#1077#1081#1090#1080' '#1082' '#1074#1080#1076#1077#1086#1087#1083#1077#1077#1088#1091
+    Hint = #1055#1077#1088#1077#1081#1090#1080' '#1082' '#1084#1077#1076#1080#1072#1087#1083#1077#1077#1088#1091
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000000600000
       00600806000000E298773800000006624B474400FF00FF00FFA0BDA793000002
@@ -5261,7 +5262,7 @@ object PaintForm: TPaintForm
       TabOrder = 2
       object img1: TImage
         Left = -1
-        Top = -6
+        Top = -2
         Width = 734
         Height = 307
         Cursor = crCross
@@ -5311,6 +5312,8 @@ object PaintForm: TPaintForm
         Caption = #1055#1088#1072#1074#1082#1072
         TabOrder = 1
         OnClick = Button2Click
+        ExplicitLeft = 157
+        ExplicitTop = 2
       end
       object Button3: TButton
         Left = 76
@@ -5410,11 +5413,7 @@ object PaintForm: TPaintForm
       OnClick = L2Click
     end
     object N21: TMenuItem
-      Caption = #1053#1072#1079#1072#1076
-      Hint = 'Undo|Reverts the last action'
-      ImageIndex = 3
-      ShortCut = 16474
-      OnClick = N10Click
+      Action = Action1
     end
   end
   object PopupMenu4: TPopupMenu
@@ -6268,5 +6267,15 @@ object PaintForm: TPaintForm
       ImageIndex = 3
       ShortCut = 16474
     end
+    object Action1: TAction
+      Category = 'Edit'
+      Caption = #1053#1072#1079#1072#1076
+      ShortCut = 16472
+      OnExecute = Action1Execute
+    end
+  end
+  object ActionList2: TActionList
+    Left = 616
+    Top = 568
   end
 end

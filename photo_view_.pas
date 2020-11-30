@@ -141,6 +141,7 @@ end;
 
 procedure TPhoto_view.Button3Click(Sender: TObject);
 begin
+  form2.visible:=false;
   OpenPictureDialog1.Execute;
   if OpenPictureDialog1.FileName<>'' then
     begin
@@ -153,6 +154,8 @@ begin
     begin
       path.Text:='Изображение не выбрано'
     end;
+  form2.visible:=true;
+  Photo_view.SetFocus;
 end;
 
 procedure TPhoto_view.Button4Click(Sender: TObject);
@@ -237,7 +240,8 @@ begin
   Photo_view.transparentcolor := true;
   Photo_view.Color := clblue;
   indexImage:=0;
-  ListFileDir('C:\Users\79876\Desktop\os3\Gallery',history)
+  ListFileDir('C:\Users\79876\Desktop\os3\Gallery',history);
+  Photo_view.openImage;
 end;
 
 procedure TPhoto_view.FormMouseWheelDown(Sender: TObject; Shift: TShiftState;

@@ -26,7 +26,7 @@ var
 
 implementation
 
-uses paint;
+uses paint, open_space;
 
 {$R *.dfm}
 
@@ -59,6 +59,8 @@ begin
   PaintForm.backp := false;
   PaintForm.nextp := false;
   PaintForm.Close;
+  form2.visible:=true;
+  form2.SetFocus;
 end;
 
 procedure TTUFPaintForm.Button3Click(Sender: TObject);
