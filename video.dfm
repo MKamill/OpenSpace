@@ -6077,7 +6077,6 @@ object video_form: Tvideo_form
       Color = clCream
       ParentBackground = False
       TabOrder = 0
-      OnMouseMove = Panel1MouseMove
       OnResize = Panel1Resize
       object Panel5: TPanel
         Left = 0
@@ -6457,7 +6456,7 @@ object video_form: Tvideo_form
             0000000049454E44AE426082}
           Proportional = True
           Stretch = True
-          OnClick = SpeedButton4Click
+          OnClick = Image4Click
           ExplicitLeft = 86
           ExplicitTop = 1
         end
@@ -6577,7 +6576,7 @@ object video_form: Tvideo_form
             426082}
           Proportional = True
           Stretch = True
-          OnClick = SpeedButton5Click
+          OnClick = Image5Click
           ExplicitLeft = 119
           ExplicitTop = 1
         end
@@ -6651,7 +6650,7 @@ object video_form: Tvideo_form
         object ProgressBar1: TProgressBar
           Left = 1
           Top = 1
-          Width = 505
+          Width = 599
           Height = 20
           Align = alLeft
           BarColor = clGray
@@ -6761,7 +6760,6 @@ object video_form: Tvideo_form
   end
   object Timer2: TTimer
     Interval = 2000
-    OnTimer = Timer2Timer
     Left = 128
     Top = 72
   end

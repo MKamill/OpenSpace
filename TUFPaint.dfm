@@ -58,7 +58,7 @@ object TUFPaintForm: TTUFPaintForm
     OnClick = Button2Click
   end
   object Button3: TButton
-    Left = 160
+    Left = 166
     Top = 56
     Width = 75
     Height = 25

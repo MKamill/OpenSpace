@@ -4785,7 +4785,7 @@ object PaintForm: TPaintForm
         ShowHint = True
         Transparent = False
         OnClick = btn7Click
-        OnMouseMove = btn7MouseMove
+        OnMouseMove = SpeedButton1MouseMove
       end
       object SpeedButton2: TSpeedButton
         Left = 71
@@ -4897,7 +4897,7 @@ object PaintForm: TPaintForm
         ShowHint = True
         Transparent = False
         OnClick = btn8Click
-        OnMouseMove = btn8MouseMove
+        OnMouseMove = SpeedButton2MouseMove
       end
       object SpeedButton3: TSpeedButton
         Left = 254
@@ -5021,7 +5021,7 @@ object PaintForm: TPaintForm
         ShowHint = True
         Transparent = False
         OnClick = btn4Click
-        OnMouseMove = btn4MouseMove
+        OnMouseMove = SpeedButton3MouseMove
       end
       object SpeedButton4: TSpeedButton
         Left = 252
@@ -5145,7 +5145,7 @@ object PaintForm: TPaintForm
         ShowHint = True
         Transparent = False
         OnClick = N7Click
-        OnMouseMove = btn4MouseMove
+        OnMouseMove = SpeedButton4MouseMove
       end
       object edt1: TEdit
         Left = 326
@@ -5261,7 +5261,7 @@ object PaintForm: TPaintForm
       Align = alClient
       TabOrder = 2
       object img1: TImage
-        Left = -1
+        Left = -3
         Top = -2
         Width = 734
         Height = 307
@@ -5342,22 +5342,27 @@ object PaintForm: TPaintForm
     Top = 256
   end
   object dlg1: TSavePictureDialog
+    Filter = 'Bitmaps (*.bmp)|*.bmp'
+    InitialDir = 'C:\Users\79876\Desktop\os3\Pictures'
     Left = 104
     Top = 312
   end
   object OpenPictureDialog1: TOpenPictureDialog
     Filter = 'JPEG Image File (*.jpg)|*.jpg|JPEG Image File (*.jpeg)|*.jpeg'
+    InitialDir = 'C:\Users\79876\Desktop\os3\Pictures'
     Left = 160
     Top = 312
   end
   object OpenPictureDialog2: TOpenPictureDialog
     Filter = 'Bitmaps (*.bmp)|*.bmp'
+    InitialDir = 'C:\Users\79876\Desktop\os3\Pictures'
     Title = #1050#1086#1085#1074#1077#1088#1090#1072#1094#1080#1103' *.BMP '#1074'  *.JPG '#1080#1083#1080' *.PNG'
     Left = 272
     Top = 312
   end
   object OpenPictureDialog3: TOpenPictureDialog
     Filter = 'Portable Network Graphics (*.png)|*.png'
+    InitialDir = 'C:\Users\79876\Desktop\os3\Pictures'
     Left = 160
     Top = 208
   end
@@ -5368,7 +5373,7 @@ object PaintForm: TPaintForm
     object N13: TMenuItem
       Caption = #1057#1086#1079#1076#1072#1090#1100
       ImageIndex = 6
-      OnClick = N2Click
+      OnClick = N13Click
     end
     object N14: TMenuItem
       Caption = #1054#1090#1082#1088#1099#1090#1100

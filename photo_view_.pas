@@ -75,6 +75,7 @@ var
   Photo_view: TPhoto_view;
 
 implementation
+
 uses Open_space, video, text_editor,LW9, paint;
 {$R *.dfm}
 
@@ -109,10 +110,11 @@ end;
 procedure TPhoto_view.main_ph_imageMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
-  if ssleft in shift then begin
-    Photo_view.Top:= Photo_view.Top+y-ny;
-    Photo_view.Left:= Photo_view.Left+x-nx;
-  end;
+  if ssleft in shift then
+                     begin
+                       Photo_view.Top:= Photo_view.Top+y-ny;
+                       Photo_view.Left:= Photo_view.Left+x-nx;
+                     end;
 end;
 
 procedure TPhoto_view.openImage;
@@ -124,10 +126,10 @@ end;
 procedure TPhoto_view.Button1Click(Sender: TObject);
 begin
   if indexImage >0 then
-    begin
-      indexImage:=indexImage-1;
-      Photo_view.openImage;
-    end;
+                   begin
+                     indexImage:=indexImage-1;
+                     Photo_view.openImage;
+                   end;
 end;
 
 procedure TPhoto_view.Button2Click(Sender: TObject);
@@ -188,15 +190,15 @@ end;
 procedure TPhoto_view.Timer1Timer(Sender: TObject);
 begin
   if play.Caption='Слайдшоу ||' then
-  begin
-    button4.Enabled:=true;
-    button5.Enabled:=true;
-  end
-  else if play.Caption='Слайдшоу >' then
-       begin
-         button4.Enabled:=false;
-         button5.Enabled:=false;
-       end;
+    begin
+      button4.Enabled:=true;
+      button5.Enabled:=true;
+    end
+    else if play.Caption='Слайдшоу >' then
+           begin
+             button4.Enabled:=false;
+             button5.Enabled:=false;
+           end;
 end;
 
 procedure TPhoto_view.timerTimer(Sender: TObject);
@@ -295,8 +297,7 @@ end;
 
 procedure TPhoto_view.Image3Click(Sender: TObject);
 begin
-  if (not Assigned(dbform)) then   // проверка существования Формы (если нет, то
-       dbform:=Tdbform.Create(Self);    // создание Формы)
+  if (not Assigned(dbform)) then dbform:=Tdbform.Create(Self);
   dbform.Show;
 end;
 
@@ -307,8 +308,7 @@ end;
 
 procedure TPhoto_view.Image5Click(Sender: TObject);
 begin
-  if (not Assigned(video_form)) then   // проверка существования Формы (если нет, то
-       video_form:=Tvideo_form.Create(Self);    // создание Формы)
+  if (not Assigned(video_form)) then video_form:=Tvideo_form.Create(Self);
   video_form.Show;
 end;
 

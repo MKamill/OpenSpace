@@ -81,7 +81,6 @@ type
     procedure Image10Click(Sender: TObject);
     procedure Image8Click(Sender: TObject);
     procedure Image15Click(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ADODataSet1AfterPost(DataSet: TDataSet);
   private
     { Private declarations }
@@ -122,11 +121,6 @@ end;
 destructor TDBForm.Destroy(Sender: TObject);
 begin
   ADOTable1.Close;
-end;
-
-procedure TDBForm.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-   //tion := caFree;
 end;
 
 procedure TDBForm.FormCreate(Sender: TObject);
@@ -183,10 +177,11 @@ end;
 procedure TDBForm.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
   Y: Integer);
 begin
-   if ssleft in shift then begin
-    DBForm.Top:= DBForm.Top+y-ny;
-    DBForm.Left:= DBForm.Left+x-nx;
-  end;
+   if ssleft in shift then
+                      begin
+                        DBForm.Top:= DBForm.Top+y-ny;
+                        DBForm.Left:= DBForm.Left+x-nx;
+                      end;
 end;
 
 procedure TDBForm.Image3Click(Sender: TObject);

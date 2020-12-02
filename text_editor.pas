@@ -119,17 +119,10 @@ type
     procedure Panel5Click(Sender: TObject);
     procedure Panel6Click(Sender: TObject);
     procedure Panel7Click(Sender: TObject);
-    procedure Label2MouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
-    procedure Label2MouseMove(Sender: TObject; Shift: TShiftState; X,
-      Y: Integer);
-//    procedure Button1Click(Sender: TObject);
-//    procedure Button2Click(Sender: TObject);
     procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-//    procedure TrackBar1Change(Sender: TObject);
     procedure FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
       MousePos: TPoint; var Handled: Boolean);
     procedure FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
@@ -152,7 +145,6 @@ type
     procedure Button3MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Timer2Timer(Sender: TObject);
-//    procedure Image3Click(Sender: TObject);
     procedure Image4Click(Sender: TObject);
     procedure Image5Click(Sender: TObject);
     procedure Image6Click(Sender: TObject);
@@ -179,43 +171,13 @@ uses video, Open_space, photo_view_, LW9, paint;
 procedure TForm1.CreateParams(var Params: TCreateParams);
 begin
   inherited CreateParams(Params);
-  Params.WndParent:= GetDesktopWindow; // дочерняя форма рабочего стола
+  Params.WndParent:= GetDesktopWindow;
 end;
 
 procedure RichEdit_MoveTo(RichEdit: TRichEdit; LineNumber, CharNumber: Word);
 begin
    RichEdit.SelStart := RichEdit.Perform(EM_LINEINDEX, LineNumber, 0) + CharNumber;
 end;
-
-//procedure TForm1.Button1Click(Sender: TObject);
-//var Point: TPoint;
-//    I:integer;
-//begin
-//  for I := 1 to 5 do
-//  begin
-//    doublebuffered:=true;
-//    sleep(30);
-//    Form1.Height:=Form1.Height+i;
-//    Form1.width:=Form1.width+3*i;
-//    panel1.Height:=panel1.Height+i-1;
-//    panel1.width:=panel1.width+3*i-1;
-//  end;
-//
-//  Point.X := Button1.Left;
-//  Point.Y := Button1.Top + Button1.Height;
-//
-//end;
-
-//procedure TForm1.Button2Click(Sender: TObject);
-//var Point: TPoint;
-//begin
-//  Point.X := Button2.Left;
-//  Point.Y := Button2.Top + Button1.Height;
-//  Form1.Height:=Form1.Height-10;
-//  Form1.width:=Form1.width-30;
-//  panel1.Height:=panel1.Height-9;
-//  panel1.width:=panel1.width-29;
-//end;
 
 procedure TForm1.Button3Click(Sender: TObject);
 begin
@@ -242,12 +204,7 @@ end;
 procedure TForm1.Button4Click(Sender: TObject);
 begin
   timer1.Enabled:=true;
-//  RichEdit_MoveTo(RichEdit1,RichEdit1.CaretPos.Y+1,0);
-//  Application.ProcessMessages;
-//  RichEdit1.SetFocus;
 end;
-
-
 
 procedure TForm1.Button4EndDrag(Sender, Target: TObject; X, Y: Integer);
 begin
@@ -279,18 +236,16 @@ begin
   image3.left:=panel1.Width-60;
   Form1.Brush.Style := bsClear;
   Form1.BorderStyle := bsNone;
-//// эти две скывают все, но форма как была так и есть, хоть и не видно.
   Form1.TransparentColorValue := clblue;
   Form1.transparentcolor := true;
   Form1.Color := clblue;
-//ти три скрывают саму форму, теперь прям за кнопками можно производить действия
 end;
 
 procedure TForm1.FormMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
- ReleaseCapture;
- Form1.perform(WM_SysCommand,$F012,0);
+  ReleaseCapture;
+  Form1.perform(WM_SysCommand,$F012,0);
 end;
 
 procedure TForm1.FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
@@ -313,14 +268,13 @@ begin
   Form1.Height:=ceil(Form1.width*0.6875);
   panel1.width:=panel1.width+10;
   panel1.Height:=ceil(panel1.width*0.5875);
-
 end;
 
 procedure TForm1.Image15Click(Sender: TObject);
 begin
-  if (not Assigned(paintform)) then   // проверка существования Формы (если нет, то
-       paintform:=Tpaintform.Create(Self);    // создание Формы)
-   paintform.Show; // (или Form2.ShowModal) показ Формы
+  if (not Assigned(paintform)) then
+       paintform:=Tpaintform.Create(Self);
+   paintform.Show;
 end;
 
 procedure TForm1.Image1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -330,7 +284,6 @@ begin
   Form1.perform(WM_SysCommand,$F012,0);
 end;
 
-
 procedure TForm1.Image4Click(Sender: TObject);
 begin
   Form1.WindowState:=wsMinimized;
@@ -338,9 +291,8 @@ end;
 
 procedure TForm1.Image5Click(Sender: TObject);
 begin
-   if (not Assigned(video_form)) then   // проверка существования Формы (если нет, то
-       video_form:=Tvideo_form.Create(Self);    // создание Формы)
-   video_form.Show; // (или Form2.ShowModal) показ Формы
+  if (not Assigned(video_form)) then video_form:=Tvideo_form.Create(Self);
+  video_form.Show;
 end;
 
 procedure TForm1.Image6Click(Sender: TObject);
@@ -350,16 +302,14 @@ end;
 
 procedure TForm1.Image7Click(Sender: TObject);
 begin
-  if (not Assigned(photo_view)) then   // проверка существования Формы (если нет, то
-       photo_view:=Tphoto_view.Create(Self);    // создание Формы)
-   photo_view.Show; // (или Form2.ShowModal) показ Формы
+  if (not Assigned(photo_view)) then photo_view:=Tphoto_view.Create(Self);
+  photo_view.Show;
 end;
 
 procedure TForm1.Image8Click(Sender: TObject);
 begin
-  if (not Assigned(dbform)) then   // проверка существования Формы (если нет, то
-       dbform:=Tdbform.Create(Self);    // создание Формы)
-   dbform.Show; // (или Form2.ShowModal) показ Формы
+  if (not Assigned(dbform)) then dbform:=Tdbform.Create(Self);
+  dbform.Show;
 end;
 
 procedure TForm1.Image9Click(Sender: TObject);
@@ -367,37 +317,10 @@ begin
   Form1.Close;
 end;
 
-procedure TForm1.Label2MouseDown(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
-begin
-//  if Button = mbLeft then
-//    begin
-//    ReleaseCapture;
-//    SendMessage(Form1.Handle, WM_NCLBUTTONDOWN, Windows.HTLEFT, 0);
-//    SendMessage(Form1.Handle, WM_NCLBUTTONDOWN, Windows.HTTOP, 0);
-//    end;
-end;
-
-procedure TForm1.Label2MouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Integer);
-begin
-  if X=Form1.Height div 10 div Form1.Height then
-Form1.Cursor:=crSizeWE
-else
-Form1.Cursor:=crDefault;
-if Y=Form1.Width div 10 div Form1.Width then
-Form1.Cursor:=crSizeNS;
-if X=Form1.Height div 10 div Form1.Height then
-Form1.Cursor:=crSizeWE
-else
-Form1.Cursor:=crDefault;
-end;
-
 procedure TForm1.N10Click(Sender: TObject);
 begin
   RichEdit1.Undo;
 end;
-
 
 procedure TForm1.N20Click(Sender: TObject);
 begin
@@ -489,7 +412,6 @@ begin
                               end
                               else Form1.close;
 end;
-
 
 procedure TForm1.N6Click(Sender: TObject);
 begin
@@ -596,7 +518,6 @@ begin
                   ToolButton10.ImageIndex:=10;
                   RichEdit1.Color:=clMenuText;
                   RichEdit1.SelLength:=0;
-                  //RichEdit1.selStart:=99999;
                   theme:=true;
                 end
                 else
@@ -608,7 +529,6 @@ begin
                   ToolButton10.ImageIndex:=9;
                   RichEdit1.Color:=clWindow;
                   RichEdit1.SelLength:=0;
-                  //RichEdit1.selStart:=99999;
                   theme:=false;
                 end;
 end;
@@ -668,20 +588,5 @@ procedure TForm1.ToolButton9Click(Sender: TObject);
 begin
   RichEdit1.Paragraph.Alignment:=tacenter;
 end;
-
-//procedure TForm1.TrackBar1Change(Sender: TObject);
-//begin
-//  if TrackBar1.Position>=50 then
-//  begin
-//     Form1.Width:=  ceil(Form1.Width*TrackBar1.Position/75);
-//     //Form1.height:=  Form1.height+ceil(TrackBar1.Position/3);
-//  end
-//  else
-//  begin
-//    Form1.Width:=ceil(Form1.Width*TrackBar1.Position/75);
-//   // Form1.height:=Form1.height-ceil(TrackBar1.Position/3);
-//  end;
-//
-//end;
 
 end.

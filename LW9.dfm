@@ -17,7 +17,6 @@
   OldCreateOrder = False
   Position = poDesigned
   ShowHint = True
-  OnClose = FormClose
   OnCreate = FormCreate
   OnMouseWheelDown = FormMouseWheelDown
   OnMouseWheelUp = FormMouseWheelUp

@@ -171,6 +171,15 @@ type
     procedure UpDown1Click(Sender: TObject; Button: TUDBtnType);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure Action1Execute(Sender: TObject);
+    procedure SpeedButton1MouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure SpeedButton2MouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure SpeedButton3MouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure SpeedButton4MouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure N13Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -218,15 +227,15 @@ procedure TPaintForm.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   if key=68 then
-  begin
-     if backp = true then
-      begin
-        img3.picture.Assign(img1.Picture);
-        img1.picture.Assign(img2.Picture);
-        nextp := true;
-      end;
-      backp := false;
-  end;
+    begin
+      if backp = true then
+        begin
+          img3.picture.Assign(img1.Picture);
+          img1.picture.Assign(img2.Picture);
+          nextp := true;
+        end;
+        backp := false;
+    end;
 end;
 
 procedure TPaintForm.FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
@@ -253,9 +262,8 @@ end;
 
 procedure TPaintForm.Image10Click(Sender: TObject);
 begin
-   if (not Assigned(Form1)) then
-     Form1:=TForm1.Create(Self);
-   Form1.Show;
+  if (not Assigned(Form1)) then Form1:=TForm1.Create(Self);
+  Form1.Show;
 end;
 
 procedure TPaintForm.Image11Click(Sender: TObject);
@@ -265,16 +273,14 @@ end;
 
 procedure TPaintForm.Image12Click(Sender: TObject);
 begin
-  if (not Assigned(photo_view)) then
-       photo_view:=Tphoto_view.Create(Self);
-   photo_view.Show;
+  if (not Assigned(photo_view)) then photo_view:=Tphoto_view.Create(Self);
+  photo_view.Show;
 end;
 
 procedure TPaintForm.Image13Click(Sender: TObject);
 begin
-  if (not Assigned(dbform)) then
-       dbform:=Tdbform.Create(Self);
-   dbform.Show;
+  if (not Assigned(dbform)) then dbform:=Tdbform.Create(Self);
+  dbform.Show;
 end;
 
 procedure TPaintForm.Image1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -294,7 +300,7 @@ end;
 
 procedure TPaintForm.Image2Click(Sender: TObject);
 begin
-   PaintForm.WindowState:=wsMinimized;
+  PaintForm.WindowState:=wsMinimized;
 end;
 
 procedure TPaintForm.Image2MouseUp(Sender: TObject; Button: TMouseButton;
@@ -310,18 +316,35 @@ begin
         //Img1.Canvas.brush.color :=clrgrd1.BackgroundColor;
         Img1.Canvas.FloodFill(x, y,Img1.Canvas.Pixels[x,y], fssurface);
     end;
-    if btn3.Down then
-      begin
-        if button = mbRight then
-          panel3.Color := Img2.Canvas.pixels[x,y]
-        else
-          pnl4.color := Img2.Canvas.pixels[x,y];
-      end;
+  if btn3.Down then
+    begin
+      if button = mbRight then
+        panel3.Color := Img2.Canvas.pixels[x,y]
+      else
+        pnl4.color := Img2.Canvas.pixels[x,y];
+    end;
 end;
 
 procedure TPaintForm.Image3Click(Sender: TObject);
+var buttonSelected: integer;
 begin
-  PaintForm.Close;
+  buttonSelected := MessageDlg('Вы уверены в том, что хотите выйти из приложения MyPaint?'+#10+'Изменения не будут сохранены!',mtWarning , mbOKCancel, 0);
+  if buttonSelected = mrOK     then
+  begin
+    img1.Picture := nil;
+    img1.Canvas.FillRect(img1.Canvas.ClipRect);
+    img2.Picture := nil;
+    img2.Canvas.FillRect(img2.Canvas.ClipRect);
+    img3.Picture := nil;
+    img3.Canvas.FillRect(img3.Canvas.ClipRect);
+    backp := false;
+    nextp := false;
+    PaintForm.Close;
+  end;
+  if buttonSelected = mrCancel then
+  begin
+    //to do
+  end;
 end;
 
 procedure TPaintForm.Image4Click(Sender: TObject);
@@ -332,18 +355,17 @@ begin
                      TUFPaintForm.ShowModal;
                    end;
   if fsave = true then
-  begin
-    PaintForm.Close;
-    form2.visible:=true;
-    form2.SetFocus;
-  end;
+                  begin
+                    PaintForm.Close;
+                    form2.visible:=true;
+                    form2.SetFocus;
+                  end;
 end;
 
 procedure TPaintForm.Image5Click(Sender: TObject);
 begin
-  if (not Assigned(video_form)) then
-       video_form:=Tvideo_form.Create(Self);
-   video_form.Show;
+  if (not Assigned(video_form)) then video_form:=Tvideo_form.Create(Self);
+  video_form.Show;
 end;
 
 procedure TPaintForm.Action1Execute(Sender: TObject);
@@ -645,6 +667,30 @@ procedure TPaintForm.pnl4MouseMove(Sender: TObject; Shift: TShiftState; X,
   Y: Integer);
 begin
   stat1.Panels[0].Text := 'Цвет левой кнопки мыши';
+end;
+
+procedure TPaintForm.SpeedButton1MouseMove(Sender: TObject; Shift: TShiftState;
+  X, Y: Integer);
+begin
+  stat1.Panels[0].Text := 'Рисование цилиндра';
+end;
+
+procedure TPaintForm.SpeedButton2MouseMove(Sender: TObject; Shift: TShiftState;
+  X, Y: Integer);
+begin
+  stat1.Panels[0].Text := 'Рисование параллелепипеда';
+end;
+
+procedure TPaintForm.SpeedButton3MouseMove(Sender: TObject; Shift: TShiftState;
+  X, Y: Integer);
+begin
+  stat1.Panels[0].Text := 'Рисование наклонной пирамиды';
+end;
+
+procedure TPaintForm.SpeedButton4MouseMove(Sender: TObject; Shift: TShiftState;
+  X, Y: Integer);
+begin
+  stat1.Panels[0].Text := 'Очистить лист';
 end;
 
 procedure TPaintForm.Timer1Timer(Sender: TObject);
@@ -1109,6 +1155,27 @@ begin
   PaintForm.SetFocus;
 end;
 
+procedure TPaintForm.N13Click(Sender: TObject);
+var buttonSelected: integer;
+begin
+  buttonSelected := MessageDlg('Вы уверены в том, что хотите создать новый файл?'+#10+'Изменения не будут сохранены!',mtWarning , mbOKCancel, 0);
+  if buttonSelected = mrOK     then
+  begin
+    img1.Picture := nil;
+    img1.Canvas.FillRect(img1.Canvas.ClipRect);
+    img2.Picture := nil;
+    img2.Canvas.FillRect(img2.Canvas.ClipRect);
+    img3.Picture := nil;
+    img3.Canvas.FillRect(img3.Canvas.ClipRect);
+    backp := false;
+    nextp := false;
+  end;
+  if buttonSelected = mrCancel then
+  begin
+    //to do
+  end;
+end;
+
 procedure TPaintForm.N1Click(Sender: TObject);
 begin
   form2.visible:=false;
@@ -1154,10 +1221,21 @@ begin
 end;
 
 procedure TPaintForm.N8Click(Sender: TObject);
+var
+  buttonSelected : Integer;
 begin
-  form2.visible:=false;
-  SUFPaintForm.Show;
-  timer1.Enabled:=true;
+  // Отображение диалога с подтверждением
+  buttonSelected := MessageDlg('Вы уверены в том, что хотите изменить параметры листа?'+#10+'Изменения не будут сохранены!',mtWarning , mbOKCancel, 0);
+  if buttonSelected = mrOK     then
+  begin
+    form2.visible:=false;
+    SUFPaintForm.Show;
+    timer1.Enabled:=true;
+  end;
+  if buttonSelected = mrCancel then
+  begin
+    //to do
+  end;
 end;
 
 procedure TPaintForm.N10Click(Sender: TObject);

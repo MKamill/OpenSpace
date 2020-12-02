@@ -66,6 +66,8 @@ end;
 procedure TTUFPaintForm.Button3Click(Sender: TObject);
 begin
   tufpaintform.close;
+  form2.Visible:=true;
+  PaintForm.BringToFront;
 end;
 
 end.
