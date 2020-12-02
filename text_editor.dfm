@@ -7798,6 +7798,7 @@ object Form1: TForm1
   object OpenDialog1: TOpenDialog
     DefaultExt = '*.rtf'
     Filter = #1060#1072#1081#1083' RTF|*.rtf'
+    InitialDir = 'C:\Users\79876\Desktop\os3\Docs'
     Left = 440
     Top = 65520
   end

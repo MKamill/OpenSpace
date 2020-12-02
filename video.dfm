@@ -6061,7 +6061,7 @@ object video_form: Tvideo_form
       Left = 721
       Top = 1
       Width = 2
-      Height = 326
+      Height = 311
       Align = alRight
       ResizeStyle = rsUpdate
       ExplicitLeft = 311
@@ -6071,7 +6071,7 @@ object video_form: Tvideo_form
       Left = 1
       Top = 1
       Width = 720
-      Height = 326
+      Height = 311
       Align = alClient
       BevelOuter = bvNone
       Color = clCream
@@ -6083,7 +6083,7 @@ object video_form: Tvideo_form
         Left = 0
         Top = 0
         Width = 720
-        Height = 326
+        Height = 311
         Align = alClient
         TabOrder = 0
       end
@@ -6728,9 +6728,9 @@ object video_form: Tvideo_form
     end
     object ListBox2: TListBox
       Left = 1
-      Top = 327
+      Top = 312
       Width = 722
-      Height = 34
+      Height = 49
       Align = alBottom
       BorderStyle = bsNone
       Color = clCream
@@ -6749,6 +6749,7 @@ object video_form: Tvideo_form
     end
   end
   object OpenDialog1: TOpenDialog
+    InitialDir = 'C:\Users\79876\Desktop\os3\Media'
     Left = 70
     Top = 70
   end
@@ -6768,10 +6769,6 @@ object video_form: Tvideo_form
     AutoPopup = False
     Left = 184
     Top = 72
-    object N3: TMenuItem
-      Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-      OnClick = N3Click
-    end
     object N2: TMenuItem
       Caption = #1059#1076#1072#1083#1080#1090#1100
       OnClick = N2Click
@@ -6790,7 +6787,7 @@ object video_form: Tvideo_form
   end
   object Timer1: TTimer
     Interval = 1
-    Left = 152
-    Top = 304
+    Left = 192
+    Top = 120
   end
 end

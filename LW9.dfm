@@ -5705,9 +5705,9 @@
     Connected = True
     ConnectionString = 
       'Provider=MSDASQL.1;Persist Security Info=False;Extended Properti' +
-      'es="DSN=MS Access Database;DBQ=C:\Users\79876\Desktop\OpenSpace\' +
-      'MyBase.mdb;DefaultDir=C:\Users\79876\Desktop\OpenSpace;DriverId=' +
-      '25;FIL=MS Access;MaxBufferSize=2048;PageTimeout=5;UID=admin;"'
+      'es="DSN=MS Access Database;DBQ=C:\Users\79876\Desktop\os3\MyBase' +
+      '.mdb;DefaultDir=C:\Users\79876\Desktop\os3;DriverId=25;FIL=MS Ac' +
+      'cess;MaxBufferSize=2048;PageTimeout=5;UID=admin;"'
     LoginPrompt = False
     Left = 312
     Top = 72
@@ -5716,6 +5716,7 @@
     Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
+    AfterPost = ADODataSet1AfterPost
     CommandText = 
       'SELECT '#1060#1072#1084#1080#1083#1080#1103','#1048#1084#1103','#1054#1090#1095#1077#1089#1090#1074#1086','#1058#1077#1083#1077#1092#1086#1085','#1057#1090#1088#1072#1085#1072','#1043#1086#1088#1086#1076','#1040#1076#1088#1077#1089','#1044#1072#1090#1072'_'#1088#1086#1078#1076 +
       #1077#1085#1080#1103','#1055#1086#1083','#1056#1086#1089#1090','#1042#1077#1089','#1062#1074#1077#1090'_'#1075#1083#1072#1079','#1052#1077#1089#1090#1086'_'#1086#1073#1091#1095#1077#1085#1080#1103','#1042#1086#1079#1088#1072#1089#1090','#1061#1086#1073#1073#1080' FROM '#1052#1086 +

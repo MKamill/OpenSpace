@@ -57,9 +57,7 @@ type
     procedure Image6Click(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
-    procedure Timer2Timer(Sender: TObject);
     procedure N4Click(Sender: TObject);
-    procedure Timer3Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -71,7 +69,9 @@ var
   Form2: TForm2;
 
 implementation
+
 uses text_editor,photo_view_,video, LW9, paint, about, gifimage;
+
 {$R *.dfm}
 
 procedure CheckFocus;
@@ -220,17 +220,6 @@ end;
 
 procedure TForm2.Timer1Timer(Sender: TObject);
 begin
-//  with video_form do
-//      begin
-//        if video_form.active then
-//        begin
-//          MediaPlayer1.Stop;
-//        end
-//        else
-//        begin
-//          if form2.N6.Checked then MediaPlayer1.play;
-//        end;
-//      end;
   with Photo_view do
       begin
         if photo_view.active or video_form.Active then
@@ -242,17 +231,6 @@ begin
           if form2.N6.Checked then MediaPlayer1.play;
         end;
       end;
-end;
-
-procedure TForm2.Timer2Timer(Sender: TObject);
-begin
-  //if n7.Checked then mediaplayer1.Stop;
-end;
-
-procedure TForm2.Timer3Timer(Sender: TObject);
-begin
-//  image8.Top:=image8.Top+5;
-//  image8.left:=image8.left-5;
 end;
 
 end.

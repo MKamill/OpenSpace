@@ -5359,8 +5359,8 @@ object Photo_view: TPhoto_view
       TabOrder = 1
     end
     object history: TMemo
-      Left = 170
-      Top = 176
+      Left = 502
+      Top = 184
       Width = 143
       Height = 89
       ScrollBars = ssBoth
@@ -5370,8 +5370,8 @@ object Photo_view: TPhoto_view
     end
   end
   object mp1: TMediaPlayer
-    Left = 280
-    Top = 264
+    Left = 440
+    Top = 368
     Width = 253
     Height = 30
     DoubleBuffered = True
@@ -5387,13 +5387,18 @@ object Photo_view: TPhoto_view
     Top = 152
   end
   object OpenPictureDialog1: TOpenPictureDialog
-    Left = 584
-    Top = 24
+    Filter = 
+      'All (*.jpg;*.jpeg;*.tif;*.tiff)|*.jpg;*.jpeg;*.tif;*.tiff|JPEG I' +
+      'mage File (*.jpeg)|*.jpeg|TIFF Images (*.tiff)|*.tiff|JPEG Image' +
+      ' File (*.jpg)|*.jpg'
+    InitialDir = 'C:\Users\79876\Desktop\os3\Gallery'
+    Left = 576
+    Top = 152
   end
   object Timer1: TTimer
     Interval = 10
     OnTimer = Timer1Timer
-    Left = 392
+    Left = 520
     Top = 152
   end
 end

@@ -5312,8 +5312,6 @@ object PaintForm: TPaintForm
         Caption = #1055#1088#1072#1074#1082#1072
         TabOrder = 1
         OnClick = Button2Click
-        ExplicitLeft = 157
-        ExplicitTop = 2
       end
       object Button3: TButton
         Left = 76
@@ -5338,33 +5336,35 @@ object PaintForm: TPaintForm
     end
   end
   object dlgOPic1: TOpenPictureDialog
-    Left = 8
-    Top = 304
+    Filter = 'Bitmaps (*.bmp)|*.bmp'
+    InitialDir = 'C:\Users\79876\Desktop\os3\Pictures'
+    Left = 104
+    Top = 256
   end
   object dlg1: TSavePictureDialog
-    Left = 8
-    Top = 336
+    Left = 104
+    Top = 312
   end
   object OpenPictureDialog1: TOpenPictureDialog
     Filter = 'JPEG Image File (*.jpg)|*.jpg|JPEG Image File (*.jpeg)|*.jpeg'
-    Left = 16
-    Top = 392
+    Left = 160
+    Top = 312
   end
   object OpenPictureDialog2: TOpenPictureDialog
     Filter = 'Bitmaps (*.bmp)|*.bmp'
     Title = #1050#1086#1085#1074#1077#1088#1090#1072#1094#1080#1103' *.BMP '#1074'  *.JPG '#1080#1083#1080' *.PNG'
-    Left = 680
-    Top = 384
+    Left = 272
+    Top = 312
   end
   object OpenPictureDialog3: TOpenPictureDialog
     Filter = 'Portable Network Graphics (*.png)|*.png'
-    Left = 680
-    Top = 328
+    Left = 160
+    Top = 208
   end
   object PopupMenu1: TPopupMenu
     Images = Form1.ImageList12
-    Left = 872
-    Top = 224
+    Left = 560
+    Top = 272
     object N13: TMenuItem
       Caption = #1057#1086#1079#1076#1072#1090#1100
       ImageIndex = 6
@@ -5390,8 +5390,8 @@ object PaintForm: TPaintForm
     end
   end
   object PopupMenu2: TPopupMenu
-    Left = 792
-    Top = 168
+    Left = 664
+    Top = 272
     object N19: TMenuItem
       Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '
       OnClick = N7Click
@@ -5402,8 +5402,8 @@ object PaintForm: TPaintForm
     end
   end
   object PopupMenu3: TPopupMenu
-    Left = 856
-    Top = 184
+    Left = 560
+    Top = 216
     object N1: TMenuItem
       Caption = #1042#1099#1073#1088#1072#1090#1100' '#1094#1074#1077#1090' '#1088#1080#1089#1086#1074#1072#1085#1080#1103
       OnClick = N1Click
@@ -5417,8 +5417,8 @@ object PaintForm: TPaintForm
     end
   end
   object PopupMenu4: TPopupMenu
-    Left = 816
-    Top = 264
+    Left = 664
+    Top = 216
     object BMPJPG1: TMenuItem
       Caption = #1048#1079' *.BMP '#1074' *. JPG'
       OnClick = jpg1Click
@@ -6258,8 +6258,8 @@ object PaintForm: TPaintForm
       000000000000}
   end
   object ActionList1: TActionList
-    Left = 464
-    Top = 336
+    Left = 160
+    Top = 256
     object EditUndo1: TEditUndo
       Category = 'Edit'
       Caption = '&Undo'

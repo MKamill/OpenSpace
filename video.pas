@@ -29,7 +29,6 @@ type
     tim: TTimer;
     Timer2: TTimer;
     PopupMenu1: TPopupMenu;
-    N3: TMenuItem;
     N2: TMenuItem;
     N1: TMenuItem;
     Panel4: TPanel;
@@ -368,7 +367,7 @@ begin
       pMediaControl.Stop;
       mode:=Stop;//устанавливаем playmode -> стоп
       pMediaPosition.put_CurrentPosition(0);
-      form2.MediaPlayer1.Play;
+      //form2.MediaPlayer1.Play;
     end;
   //form2.MediaPlayer1.Play;
 end;
@@ -409,8 +408,8 @@ begin
   end
   else
   begin
-    pMediaControl.Pause;
-    mode:=paused;//устанавливаем playmode -> пауза
+    //pMediaControl.Pause;
+    //mode:=paused;//устанавливаем playmode -> пауза
     image9.left:=main_panel.Width-170;
     image8.left:=main_panel.Width-60;
     video_form.width:=video_form.width-10;
@@ -419,7 +418,7 @@ begin
     main_panel.Height:=ceil(main_panel.width*0.5875);
     panel1.Width:=main_panel.Width;
     pVideoWindow.SetWindowPosition(0,0,Panel1.ClientRect.Right,Panel1.ClientRect.Bottom);
-    Player;
+    //Player;
   end;
 
 end;
@@ -438,8 +437,8 @@ begin
   end
   else
   begin
-    pMediaControl.Pause;
-    mode:=paused;//устанавливаем playmode -> пауза
+   // pMediaControl.Pause;
+   // mode:=paused;//устанавливаем playmode -> пауза
     image9.left:=main_panel.Width-170;
     image8.left:=main_panel.Width-60;
     video_form.width:=video_form.width+10;
@@ -448,7 +447,7 @@ begin
     main_panel.Height:=ceil(main_panel.width*0.5875);
     panel1.Width:=main_panel.Width;
     pVideoWindow.SetWindowPosition(0,0,Panel1.ClientRect.Right,Panel1.ClientRect.Bottom);
-    player;
+   // player;
   end;
 //  if mode=play then
 // begin
@@ -664,7 +663,6 @@ end;
 
 //процедура замедленного воспроизведения
 procedure Tvideo_form.SpeedButton4Click(Sender: TObject);
-var  pdRate: Double;
 begin
 if mode=play then
   begin
@@ -674,7 +672,6 @@ end;
 
 //процедура ускоренного воспроизведения
 procedure Tvideo_form.SpeedButton5Click(Sender: TObject);
-var  pdRate: Double;
 begin
 if mode=play then
   begin

@@ -82,6 +82,7 @@ type
     procedure Image8Click(Sender: TObject);
     procedure Image15Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ADODataSet1AfterPost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -101,6 +102,11 @@ procedure TDBForm.CreateParams(var Params: TCreateParams);
 begin
   inherited CreateParams(Params);
   Params.WndParent:= GetDesktopWindow;
+end;
+
+procedure TDBForm.ADODataSet1AfterPost(DataSet: TDataSet);
+begin
+  ADODataSet1.Requery;
 end;
 
 procedure TDBForm.Button1Click(Sender: TObject);
