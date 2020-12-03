@@ -3814,7 +3814,7 @@ object AboutForm: TAboutForm
   end
   object Image8: TImage
     Left = 63
-    Top = 8
+    Top = 10
     Width = 73
     Height = 58
     Cursor = crHandPoint
@@ -3960,11 +3960,12 @@ object AboutForm: TAboutForm
         Enabled = False
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
+        Font.Height = -16
         Font.Name = 'Tahoma'
-        Font.Style = []
+        Font.Style = [fsBold]
         Lines.Strings = (
-          'OpenSpace')
+          'OpenSpace v.1.2'
+          '')
         ParentFont = False
         TabOrder = 0
         Zoom = 100
@@ -3979,11 +3980,12 @@ object AboutForm: TAboutForm
         Width = 567
         Height = 297
         Align = alClient
+        Enabled = False
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
+        Font.Height = -16
         Font.Name = 'Tahoma'
-        Font.Style = []
+        Font.Style = [fsBold]
         Lines.Strings = (
           #1054#1073#1088#1072#1097#1072#1081#1090#1077#1089#1100' '#1082' '#1072#1074#1090#1086#1088#1091)
         ParentFont = False

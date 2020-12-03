@@ -137,8 +137,22 @@ begin
 end;
 
 procedure TForm2.Image14Click(Sender: TObject);
+var buttonSelected: integer;
 begin
-  Application.Terminate;
+  if paintform.Showing or form1.Showing then
+  begin
+    buttonSelected := MessageDlg('¬ы уверены в том, что хотите выйти из приложени€ Office?'+#10+'” вас открыт графический или текстовый редактор, изменени€ не сохран€тс€!',mtWarning , mbOKCancel, 0);
+    if buttonSelected = mrOK     then
+      begin
+        application.Terminate;
+      end;
+    if buttonSelected = mrCancel then
+      begin
+        //to do
+      end;
+  end
+  else application.Terminate;
+
 end;
 
 procedure TForm2.Image1Click(Sender: TObject);
